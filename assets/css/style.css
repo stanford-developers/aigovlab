@@ -351,6 +351,40 @@ nav#top-nav {
   margin: 0.9rem 0 0;
 }
 
+/* Both logos are drawn in dark and brand colors for a white page, which
+   vanish against the hero photo, so the filter knocks them out to solid
+   white. Their opacity matches the subtitle's so they read as a step below
+   it rather than competing with it. The SLS wordmark is a single line, so it
+   is set shorter than HAI's stacked lockup to read at a similar size. */
+.hero-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 2.5rem;
+  margin-top: 2rem;
+}
+
+.hero-logos a {
+  display: block;
+}
+
+.hero-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  filter: brightness(0) invert(1);
+  opacity: 0.86;
+}
+
+.hero-logo-hai {
+  height: 44px;
+}
+
+.hero-logo-sls {
+  height: 30px;
+}
+
 /* ---------- Bands, headings, prose ---------- */
 
 .band {
