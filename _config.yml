@@ -18,11 +18,34 @@ baseurl: ""
 # Referenced from the footer and the Substack section; change it in one place.
 substack_url: "https://aigovlab.substack.com/"
 
+# The lab's inbox, linked from the Stay in Touch section and the footer.
+contact_email: "aigovernancelab@stanford.edu"
+
 # The photo behind the lab name at the top of the homepage. To change it, drop a
 # landscape image at least 1600px wide into assets/img/ and point this at it.
 # A dark wash goes over the photo automatically so the white lab name stays
 # readable, but a photo that is bright or busy through the middle will fight it.
 hero_image: /assets/img/coda.jpg
+
+# --- Link previews and search ---
+# jekyll-seo-tag writes the <title>, description, canonical link, and the Open
+# Graph / Twitter tags that Slack, LinkedIn, and X read for a link preview.
+# `og.jpg` is a 1200x630 crop of the hero photo, the shape those cards use.
+# jekyll-sitemap writes /sitemap.xml. Both ship with the github-pages gem.
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# The homepage's preview reads "AI Governance Lab | Stanford University"; inner
+# pages read "Research | AI Governance Lab". The browser-tab <title> is still
+# written by hand in _includes/head.html.
+tagline: "Stanford University"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og.jpg
 
 # --- Build ---
 markdown: kramdown
@@ -35,5 +58,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  # The Substack refresh script is run by hand, not served.
+  - script
   - vendor
   - .bundle

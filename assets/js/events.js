@@ -22,11 +22,14 @@
 
   var now = new Date();
   var today = iso(now.getFullYear(), now.getMonth(), now.getDate());
+  // The last day of next month: the list covers what the two calendars do.
+  var horizonDay = new Date(now.getFullYear(), now.getMonth() + 2, 0);
+  var horizon = iso(horizonDay.getFullYear(), horizonDay.getMonth(), horizonDay.getDate());
 
-  // --- Drop what has passed since the last build ---
+  // --- Drop what has passed since the last build, and what is further out ---
   var items = [].slice.call(section.querySelectorAll('.event')).filter(function (li) {
     var last = li.getAttribute('data-end') || li.getAttribute('data-date');
-    if (last < today) {
+    if (last < today || li.getAttribute('data-date') > horizon) {
       li.remove();
       return false;
     }
@@ -43,6 +46,12 @@
     empty.hidden = false;
     return;
   }
+
+  // The key keeps only the hosts still on the list.
+  [].forEach.call(legend.querySelectorAll('[data-key]'), function (entry) {
+    var host = entry.getAttribute('data-key');
+    entry.hidden = !items.some(function (li) { return li.getAttribute('data-host') === host; });
+  });
 
   // A multi-day event is marked on every day it runs.
   var byDate = {};

@@ -466,11 +466,6 @@ nav#top-nav {
   text-align: left;
 }
 
-.placeholder {
-  color: var(--ink-soft);
-  font-style: italic;
-}
-
 .see-all {
   text-align: center;
   margin: 2rem 0 0;
@@ -599,6 +594,19 @@ a.person-card:hover .avatar {
 .substack-embed iframe {
   display: block;
   background: #ffffff;
+}
+
+/* The embed is Substack's page and stays white whatever the theme, so on the
+   dark theme it gets a frame of its own to sit in rather than punching a white
+   hole in the band. */
+:root[data-theme="dark"] .substack-embed {
+  padding: 0.75rem;
+  background: var(--paper-alt);
+  border-radius: 6px;
+}
+
+:root[data-theme="dark"] .substack-embed iframe {
+  border-radius: 3px;
 }
 
 /* The post list under the embed is centered over the same 820px column, so
@@ -790,6 +798,7 @@ a.person-card:hover .avatar {
 }
 
 .event-key[hidden],
+.event-key li[hidden],
 .events-layout[hidden] {
   display: none;
 }
@@ -978,6 +987,12 @@ span.event-title {
   margin-top: 0.55rem;
 }
 
+.event-more {
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
 .event-empty a {
   font-style: normal;
 }
@@ -1004,6 +1019,13 @@ span.event-title {
   margin: 0.4rem 0 2.5rem;
   padding-bottom: 1.75rem;
   border-bottom: 1px solid var(--rule);
+}
+
+.not-found-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 2;
 }
 
 /* ---------- Publications ---------- */
@@ -1201,6 +1223,26 @@ footer {
 
 .footer-links a:first-child {
   margin-left: 0;
+}
+
+.footer-stanford {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+  margin: 1.25rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+  font-size: 0.78rem;
+}
+
+.footer-stanford a {
+  color: var(--ink-soft);
+}
+
+.footer-stanford a:hover {
+  color: var(--cardinal);
 }
 
 /* ---------- Responsive ---------- */

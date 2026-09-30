@@ -10,11 +10,28 @@
         The year comes from the build time rather than being typed in, so it
         cannot quietly go stale — every push to main rebuilds the site.
       {%- endcomment -%}
-      <p class="footer-copyright">&copy; {{ site.time | date: "%Y" }}</p>
+      <p class="footer-copyright">&copy; {{ site.time | date: "%Y" }} Stanford University</p>
     </div>
     <p class="footer-links">
       <a href="{{ site.substack_url }}" target="_blank" rel="noopener">Substack</a>
-      <a href="https://www.stanford.edu/accessibility">Accessibility</a>
+      <a href="mailto:{{ site.contact_email }}">Email</a>
     </p>
+    {%- comment -%}
+      The links every stanford.edu site carries, from the university's global
+      footer. They are Stanford's pages rather than the lab's, so they sit a
+      step quieter than the row above.
+    {%- endcomment -%}
+    <ul class="footer-stanford" aria-label="Stanford University">
+      <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+      <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+      <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+      <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+      <li><a href="https://www.stanford.edu/site/terms/">Terms of Use</a></li>
+      <li><a href="https://www.stanford.edu/site/privacy/">Privacy</a></li>
+      <li><a href="https://uit.stanford.edu/security/copyright-infringement">Copyright</a></li>
+      <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4">Trademarks</a></li>
+      <li><a href="https://bulletin.stanford.edu/pages/c7vDgeOJUtF9P5gQnHSk">Non-Discrimination</a></li>
+      <li><a href="https://www.stanford.edu/site/accessibility">Accessibility</a></li>
+    </ul>
   </div>
 </footer>

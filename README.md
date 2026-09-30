@@ -36,7 +36,7 @@ rather than touching HTML.
 
 **Edit these to change content:**
 
-- `_data/people.yml` — everyone in the People section (name, role, group, photo, bio)
+- `_data/people.yml` — everyone in the People section (name, role, group, photo, link)
 - `_data/people_groups.yml` — the People subsections and their order
 - `_data/research.yml` — publications on the Research page
 - `_data/news.yml` — items in the News section
@@ -182,7 +182,11 @@ day it runs and stays listed until the last one.
 
 The two small calendars (this month and next) are drawn in the browser by
 `assets/js/events.js`, which also drops events that have passed since the last
-build. Without JavaScript the list still shows, as of the last build.
+build and holds back anything after the end of next month, so the list covers
+the same two months as the calendars. Events further out can be added any time;
+they appear on their own once they come within range. Without JavaScript the
+full list still shows, as of the last build. The key under the heading only
+lists hosts that have an event on the list.
 
 ### Adding a course
 
@@ -218,6 +222,17 @@ browser would put a third-party request on every page load. Re-run it whenever
 you want the homepage to catch up; nothing breaks if it goes a while between
 runs, the list just shows older posts. To list more or fewer than three, change
 `POST_COUNT` at the top of the script and re-run it.
+
+### Contact email and link previews
+
+The lab's address, `contact_email` in `_config.yml`, is linked from the Stay in
+Touch section and the footer.
+
+Link previews (what Slack, LinkedIn, or X show when someone pastes the URL) and
+`/sitemap.xml` come from the `jekyll-seo-tag` and `jekyll-sitemap` plugins,
+listed under `plugins:` in `_config.yml`. Each page's `title` and `description`
+front matter feed the preview; the image is `assets/img/og.jpg`, a 1200×630
+crop of the hero photo. Replace that file to change the preview image.
 
 ### Editing page prose
 
@@ -266,8 +281,9 @@ at a custom domain root, so there is no path prefix (see the `baseurl` note in
 
 This site lives at [`stanford-developers/aigovlab`](https://github.com/stanford-developers/aigovlab)
 under the Stanford Developers GitHub organization. It moved there from
-`aigovlab/lab-website`; GitHub redirects the old URL, but the remote here and
-the `url`/`baseurl` in `_config.yml` point at the new location.
+`aigovlab/lab-website`; GitHub redirects the old URL, but the remote here
+points at the new location. The site itself is served from the custom domain
+(see Deployment).
 
 It was seeded from `dazzap9/ai-governance-lab`, which is kept as an `upstream`
 remote (fetch-only) in case we want to pull in changes from that copy:

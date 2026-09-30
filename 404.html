@@ -1,0 +1,19 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+sitemap: false
+---
+{%- comment -%}
+  GitHub Pages serves this for any address that doesn't exist. It uses
+  absolute links because it can be shown at any depth of the site.
+{%- endcomment -%}
+<div class="wrap page">
+  <h1 class="page-title">Page Not Found</h1>
+  <p class="page-standfirst">Nothing lives at this address. It may have moved, or the link may have a typo.</p>
+  <ul class="not-found-links">
+    <li><a href="{{ '/' | relative_url }}">Go to the homepage</a></li>
+    <li><a href="{{ '/research.html' | relative_url }}">Browse the lab's research</a></li>
+    <li><a href="{{ '/teaching.html' | relative_url }}">See the lab's courses</a></li>
+  </ul>
+</div>

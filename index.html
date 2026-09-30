@@ -1,11 +1,11 @@
 ---
 layout: default
 nav: home
-title: Home
+title: AI Governance Lab
 ---
 {%- comment -%}
-  The homepage carries four of the six tabs as sections: Home (the hero),
-  People, Stay in Touch, and Recent News. Teaching and Research are their own
+  The homepage carries five of the seven tabs as sections: Home (the hero),
+  People, News, Events, and Stay in Touch. Research and Teaching are their own
   pages. Section ids here must match the `id` values in _data/nav.yml.
 {%- endcomment -%}
 
@@ -22,7 +22,7 @@ title: Home
 
 <section id="about" class="band">
   <div class="wrap">
-    <h2 class="section-heading">About the lab</h2>
+    <h2 class="section-heading">About the Lab</h2>
     <div class="prose">
       <p>
         The AI Governance Lab focuses on creating the institutional framework for the AI
@@ -116,8 +116,10 @@ title: Home
     {%- comment -%}
       Items live in _data/events.yml, in any order — they are sorted by date
       here. Past events (by `end_date` for a multi-day one) are dropped at
-      build time, and again in the browser by
-      events.js, since the site only rebuilds when something is pushed.
+      build time, and again in the browser by events.js, since the site only
+      rebuilds when something is pushed. events.js also holds back anything
+      after next month, so the list covers the same two months as the
+      calendars; without JavaScript every upcoming event shows.
 
       The key's labels and the host line under each event come from the same
       table, so a host added here shows up in both places. Its color is set in
@@ -131,17 +133,28 @@ title: Home
     {%- else %}
     {%- assign events = "" | split: "" %}
     {%- endif %}
+    {%- comment -%}
+      The key only lists hosts that have something coming up, so it never
+      explains a color that appears nowhere on the page.
+    {%- endcomment -%}
     {%- assign upcoming = 0 %}
+    {%- assign upcoming_hosts = "" %}
     {%- for event in events %}
       {%- assign last = event.end_date | default: event.date %}
       {%- assign d = last | date: "%Y%m%d" | plus: 0 %}
-      {%- if d >= today %}{% assign upcoming = upcoming | plus: 1 %}{% endif %}
+      {%- if d >= today %}
+        {%- assign upcoming = upcoming | plus: 1 %}
+        {%- assign event_host = event.host | default: "lab" %}
+        {%- assign upcoming_hosts = upcoming_hosts | append: "|" | append: event_host | append: "|" %}
+      {%- endif %}
     {%- endfor %}
 
     <ul class="event-key" aria-label="Key"{% if upcoming == 0 %} hidden{% endif %}>
       {%- for h in hosts %}
       {%- assign parts = h | split: "|" %}
-      <li><span class="event-mark" data-host="{{ parts[0] }}"></span>{{ parts[1] }}</li>
+      {%- assign needle = "|" | append: parts[0] | append: "|" %}
+      {%- unless upcoming_hosts contains needle %}{% continue %}{% endunless %}
+      <li data-key="{{ parts[0] }}"><span class="event-mark" data-host="{{ parts[0] }}"></span>{{ parts[1] }}</li>
       {%- endfor %}
     </ul>
 
@@ -193,6 +206,7 @@ title: Home
         {%- unless month == "" %}
         </ol></div>
         {%- endunless %}
+        <p class="event-more">For more on campus, see the <a href="https://law.stanford.edu/ai-initiative/events-ai/" target="_blank" rel="noopener">Stanford Law AI Initiative</a> and <a href="https://hai.stanford.edu/events" target="_blank" rel="noopener">Stanford HAI</a> event pages.</p>
       </div>
     </div>
 
@@ -207,7 +221,11 @@ title: Home
     <div class="prose">
       <p>
         The lab publishes a newsletter on Substack, covering AI policy, democratic 
-        governance, teaching, and research. Subscribe to get updates on our work. 
+        governance, teaching, and research. Subscribe to get updates on our work.
+      </p>
+      <p>
+        To reach the lab directly, write to
+        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.
       </p>
     </div>
     <div class="substack-embed">
@@ -231,7 +249,7 @@ title: Home
       appear is set by `POST_COUNT` in the script, not here.
     {%- endcomment -%}
     {%- if site.data.substack.size > 0 %}
-    <h3 class="posts-heading">Latest posts</h3>
+    <h3 class="posts-heading">Latest Posts</h3>
     <ul class="post-list">
       {%- for post in site.data.substack %}
       <li class="post">

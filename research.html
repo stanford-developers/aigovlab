@@ -23,7 +23,7 @@ description: >-
     {%- assign primary = paper.links.doi | default: paper.links.url | default: paper.links.pdf %}
     <li class="pub">
       <p class="pub-title">
-        {%- if primary %}<a href="{{ primary }}">{{ paper.title | escape }}</a>{% else %}{{ paper.title | escape }}{% endif -%}
+        {%- if primary %}<a href="{{ primary }}" target="_blank" rel="noopener">{{ paper.title | escape }}</a>{% else %}{{ paper.title | escape }}{% endif -%}
       </p>
       <p class="pub-authors">
         {%- for author in paper.authors -%}
@@ -44,10 +44,10 @@ description: >-
       {%- endif %}
       {%- comment -%} The title already opens the primary link; these are the extras. {%- endcomment -%}
       {%- capture extras -%}
-        {%- if paper.links.url and paper.links.url != primary %}<a href="{{ paper.links.url }}">Web page</a>{% endif -%}
-        {%- if paper.links.pdf and paper.links.pdf != primary %}<a href="{{ paper.links.pdf }}">PDF</a>{% endif -%}
-        {%- if paper.links.code %}<a href="{{ paper.links.code }}">Code</a>{% endif -%}
-        {%- if paper.links.data %}<a href="{{ paper.links.data }}">Data</a>{% endif -%}
+        {%- if paper.links.url and paper.links.url != primary %}<a href="{{ paper.links.url }}" target="_blank" rel="noopener">Web page</a>{% endif -%}
+        {%- if paper.links.pdf and paper.links.pdf != primary %}<a href="{{ paper.links.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
+        {%- if paper.links.code %}<a href="{{ paper.links.code }}" target="_blank" rel="noopener">Code</a>{% endif -%}
+        {%- if paper.links.data %}<a href="{{ paper.links.data }}" target="_blank" rel="noopener">Data</a>{% endif -%}
       {%- endcapture %}
       {%- if extras != "" %}
       <p class="pub-links">{{ extras }}</p>

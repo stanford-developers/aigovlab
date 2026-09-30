@@ -77,7 +77,7 @@
 })();
 
 // --- Scroll highlight ---
-// Four of the six tabs point at sections of the homepage, so `nav:` front
+// Five of the seven tabs point at sections of the homepage, so `nav:` front
 // matter can only ever mark one of them active. On the homepage we take over
 // and mark whichever section is currently in view. Other pages keep the
 // server-rendered active tab and skip this entirely.

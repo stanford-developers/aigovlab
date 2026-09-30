@@ -29,7 +29,21 @@
   <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}" />
   <link rel="apple-touch-icon" href="{{ '/assets/img/favicon.png' | relative_url }}" />
   <title>{% if page.nav == 'home' %}{{ site.title }} · {{ site.subtitle }}{% else %}{{ page.title }} — {{ site.title }}{% endif %}</title>
-  <meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}" />
+  {%- comment -%}
+    jekyll-seo-tag writes the description, the canonical link, and the Open
+    Graph and Twitter tags a link preview is built from, out of each page's
+    `title` and `description` front matter. `title=false` keeps the <title>
+    above: the plugin's own separator is a fixed " | ".
+  {%- endcomment -%}
+  {% seo title=false %}
+  {%- comment -%}
+    The hero photo is a CSS background, which the browser would otherwise not
+    discover until the stylesheet has loaded — and it is the biggest thing on
+    the first screen.
+  {%- endcomment -%}
+  {%- if page.nav == 'home' %}
+  <link rel="preload" as="image" href="{{ site.hero_image | relative_url }}" />
+  {%- endif %}
   {%- comment -%}
     Public Sans is the US Web Design System's typeface — the site is set in the
     vernacular of the field it studies. Newsreader carries the headings.

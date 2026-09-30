@@ -2,8 +2,9 @@
 # elsewhere.
 #
 # Add one block per event, in any order; the section sorts them by date and
-# drops them once the day has passed. Events this month and next also show up
-# on the two small calendars. While nothing is upcoming, the section shows a
+# drops them once the day has passed. Only events this month and next are
+# listed, matching the two small calendars; anything further out appears on its
+# own once it is within next month. While nothing is upcoming, the section shows a
 # "nothing on the calendar yet" message instead.
 #
 #   date      YYYY-MM-DD
