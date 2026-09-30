@@ -25,7 +25,8 @@
 
   // --- Drop what has passed since the last build ---
   var items = [].slice.call(section.querySelectorAll('.event')).filter(function (li) {
-    if (li.getAttribute('data-date') < today) {
+    var last = li.getAttribute('data-end') || li.getAttribute('data-date');
+    if (last < today) {
       li.remove();
       return false;
     }
@@ -43,10 +44,16 @@
     return;
   }
 
+  // A multi-day event is marked on every day it runs.
   var byDate = {};
   items.forEach(function (li) {
-    var d = li.getAttribute('data-date');
-    (byDate[d] = byDate[d] || []).push(li);
+    var p = li.getAttribute('data-date').split('-');
+    var day = new Date(+p[0], p[1] - 1, +p[2]);
+    var end = li.getAttribute('data-end') || li.getAttribute('data-date');
+    for (var d = li.getAttribute('data-date'); d <= end;
+         day.setDate(day.getDate() + 1), d = iso(day.getFullYear(), day.getMonth(), day.getDate())) {
+      (byDate[d] = byDate[d] || []).push(li);
+    }
   });
 
   // --- Calendars ---
@@ -110,8 +117,8 @@
         events.slice(0, 3).forEach(function (li) {
           var mark = marks.appendChild(el('span', 'event-mark'));
           mark.setAttribute('data-host', li.getAttribute('data-host'));
-          // Lets hovering an event in the list point back at its day.
-          li.calDay = cell;
+          // Lets hovering an event in the list point back at its days.
+          (li.calDays = li.calDays || []).push(cell);
         });
       } else {
         cell = el('span', 'cal-day');
@@ -139,9 +146,9 @@
   cals.appendChild(month(m === 11 ? y + 1 : y, (m + 1) % 12));
 
   items.forEach(function (li) {
-    if (!li.calDay) return;
-    function on() { li.calDay.classList.add('is-linked'); }
-    function off() { li.calDay.classList.remove('is-linked'); }
+    if (!li.calDays) return;
+    function on() { li.calDays.forEach(function (c) { c.classList.add('is-linked'); }); }
+    function off() { li.calDays.forEach(function (c) { c.classList.remove('is-linked'); }); }
     li.addEventListener('mouseenter', on);
     li.addEventListener('mouseleave', off);
     li.addEventListener('focusin', on);

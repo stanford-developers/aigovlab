@@ -167,6 +167,9 @@ is optional.
 (the default), `hai`, `sls`, or `recommended` for someone else's event worth
 attending. The colors live in `style.css` as `--host-*`.
 
+For an event that runs more than one day, add `end_date`. It's marked on every
+day it runs and stays listed until the last one.
+
 ```yaml
 - date: 2026-10-08
   title: "Workshop: Auditing frontier models"

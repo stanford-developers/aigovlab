@@ -7,6 +7,7 @@
 # "nothing on the calendar yet" message instead.
 #
 #   date      YYYY-MM-DD
+#   end_date  YYYY-MM-DD, for an event that runs more than one day — optional
 #   title     what the event is called
 #   host      who is putting it on, which sets its color on the calendar:
 #               lab          the AI Governance Lab (the default if left out)
@@ -86,3 +87,53 @@
   location: "Room 270, Stanford Law School"
   summary: "AI Initiative Speaker Series, with Christina Knight, formerly of Scale AI, and Stephanie Sharron of Morrison & Foerster."
   url: "https://law.stanford.edu/event/ai-initiative-speaker-series-5/"
+
+# --- Stanford HAI, autumn 2026 ---
+
+- date: 2026-09-30
+  title: "The World Model and Spatial Intelligence Era: Governing AI Beyond Language"
+  host: hai
+  time: "3:00–4:15 pm"
+  location: "Gates Computer Science, Room 119"
+  summary: "HAI seminar with Daniel Zhang, Caroline Meinhardt, Jiajun Wu, and Russell Wald."
+  url: "https://hai.stanford.edu/events/world-model-and-spatial-intelligence-era"
+
+- date: 2026-10-02
+  end_date: 2026-10-03
+  title: "Empirical Methods in the Age of AI"
+  host: hai
+  location: "Simonyi Conference Center, CoDa"
+  summary: "A two-day HAI conference on how AI is changing the way researchers collect, analyze, and learn from data."
+  url: "https://hai.stanford.edu/events/empirical-methods-in-the-age-of-ai"
+
+- date: 2026-10-02
+  title: "Measuring AI in the Real World"
+  host: hai
+  time: "1:00–2:15 pm"
+  location: "Gates Computer Science, Room 119"
+  summary: "HAI seminar with Anastasios Angelopoulos of UC Berkeley, co-hosted with the AI Measurement Science Center."
+  url: "https://hai.stanford.edu/events/anastasios-angelopoulos-measuring-ai-in-the-real-world"
+
+- date: 2026-10-12
+  title: "Forecasting AI's Impact on Human Expertise and the Future of Work"
+  host: hai
+  time: "12:00–1:00 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Digital Economy Lab seminar with Neil Thompson of MIT."
+  url: "https://digitaleconomy.stanford.edu/event/neil-thompson-seminar-series/"
+
+- date: 2026-10-28
+  title: "Confronting Our AI Future: Hope, Fear, and the Choices Ahead"
+  host: hai
+  time: "9:00 am–6:45 pm"
+  location: "Traitel Building, Hoover Institution"
+  summary: "HAI conference with keynotes from Jeff Dean and Audrey Tang."
+  url: "https://hai.stanford.edu/events/confronting-our-ai-future-hope-fear-and-the-choices-ahead"
+
+- date: 2026-11-18
+  title: "AI Goes Mainstream: The Scaling Era and the Rise of Generative AI"
+  host: hai
+  time: "12:00–1:15 pm"
+  location: "Gates Computer Science, Room 119"
+  summary: "HAI seminar with Michael Wooldridge of Oxford on the third AI100 report."
+  url: "https://hai.stanford.edu/events/hai-seminar-the-ai-100"

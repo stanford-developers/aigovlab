@@ -115,7 +115,8 @@ title: Home
     <h2 class="section-heading">Events</h2>
     {%- comment -%}
       Items live in _data/events.yml, in any order — they are sorted by date
-      here. Past events are dropped at build time, and again in the browser by
+      here. Past events (by `end_date` for a multi-day one) are dropped at
+      build time, and again in the browser by
       events.js, since the site only rebuilds when something is pushed.
 
       The key's labels and the host line under each event come from the same
@@ -132,7 +133,8 @@ title: Home
     {%- endif %}
     {%- assign upcoming = 0 %}
     {%- for event in events %}
-      {%- assign d = event.date | date: "%Y%m%d" | plus: 0 %}
+      {%- assign last = event.end_date | default: event.date %}
+      {%- assign d = last | date: "%Y%m%d" | plus: 0 %}
       {%- if d >= today %}{% assign upcoming = upcoming | plus: 1 %}{% endif %}
     {%- endfor %}
 
@@ -150,7 +152,8 @@ title: Home
       <div class="event-agenda">
         {%- assign month = "" %}
         {%- for event in events %}
-        {%- assign d = event.date | date: "%Y%m%d" | plus: 0 %}
+        {%- assign last = event.end_date | default: event.date %}
+        {%- assign d = last | date: "%Y%m%d" | plus: 0 %}
         {%- if d < today %}{% continue %}{% endif %}
         {%- assign m = event.date | date: "%Y-%m" %}
         {%- if m != month %}
@@ -168,10 +171,10 @@ title: Home
           {%- assign parts = h | split: "|" %}
           {%- if parts[0] == host %}{% assign host_line = parts[2] %}{% endif %}
         {%- endfor %}
-            <li class="event" id="event-{{ event.date | date: '%Y-%m-%d' }}-{{ forloop.index }}" data-date="{{ event.date | date: '%Y-%m-%d' }}" data-host="{{ host }}">
+            <li class="event" id="event-{{ event.date | date: '%Y-%m-%d' }}-{{ forloop.index }}" data-date="{{ event.date | date: '%Y-%m-%d' }}"{% if event.end_date %} data-end="{{ event.end_date | date: '%Y-%m-%d' }}"{% endif %} data-host="{{ host }}">
               <time class="event-date" datetime="{{ event.date | date: '%Y-%m-%d' }}">
                 <span class="event-day">{{ event.date | date: "%-d" }}</span>
-                <span class="event-weekday">{{ event.date | date: "%a" }}</span>
+                <span class="event-weekday">{{ event.date | date: "%a" }}{% if event.end_date %}–{{ event.end_date | date: "%a" }}{% endif %}</span>
               </time>
               <div class="event-body">
                 {%- if event.url %}
