@@ -54,6 +54,7 @@ rather than touching HTML.
 - `_includes/footer.html` — footer
 - `assets/css/style.css` — all styling (Stanford cardinal, light/dark)
 - `assets/js/theme.js` — light/dark toggle, mobile menu, scroll highlighting
+- `assets/js/events.js` — the Events calendars, and hiding past events
 - `assets/img/` — member photos, the hero image, and the favicon
 - `assets/img/substack/` — post cover images (generated, see below)
 - `script/update-substack.rb` — refreshes `_data/substack.yml` from the RSS feed
@@ -158,16 +159,27 @@ to say why the item matters to the lab when the headline doesn't mention us.
 
 ### Adding an event
 
-Copy a block in `_data/events.yml`. Soonest first. Everything but `date` and
-`title` is optional.
+Copy a block in `_data/events.yml`, in any order — the section sorts by date
+and hides events once their day has passed. Everything but `date` and `title`
+is optional.
+
+`host` sets the event's color on the calendar and its line in the key: `lab`
+(the default), `hai`, `sls`, or `recommended` for someone else's event worth
+attending. The colors live in `style.css` as `--host-*`.
 
 ```yaml
 - date: 2026-10-08
   title: "Workshop: Auditing frontier models"
+  host: lab
+  time: "12:00–1:30 pm"
   location: "Encina Hall, Stanford"
   summary: "A half-day session on what third-party audits can establish."
   url: "https://example.com/register"
 ```
+
+The two small calendars (this month and next) are drawn in the browser by
+`assets/js/events.js`, which also drops events that have passed since the last
+build. Without JavaScript the list still shows, as of the last build.
 
 ### Adding a course
 

@@ -1,11 +1,19 @@
-# Talks, workshops, and other lab events, shown in the Events section of the
-# homepage.
+# Events on the homepage calendar — the lab's own, and ones worth attending
+# elsewhere.
 #
-# Add one block per event, soonest first — this file's order is the section's
-# order. While the file is empty the section shows a "check back soon" message.
+# Add one block per event, in any order; the section sorts them by date and
+# drops them once the day has passed. Events this month and next also show up
+# on the two small calendars. While nothing is upcoming, the section shows a
+# "nothing on the calendar yet" message instead.
 #
 #   date      YYYY-MM-DD
 #   title     what the event is called
+#   host      who is putting it on, which sets its color on the calendar:
+#               lab          the AI Governance Lab (the default if left out)
+#               hai          Stanford HAI
+#               sls          Stanford Law School
+#               recommended  someone else's event the lab thinks is worth going to
+#   time      free text, e.g. "4:00–5:30 pm" — optional
 #   location  room, building, or "Online" — optional
 #   summary   a sentence on what it is — optional
 #   url       a registration or details page — optional
@@ -14,6 +22,67 @@
 #
 # - date: 2026-10-08
 #   title: "Workshop: Auditing frontier models"
+#   host: lab
+#   time: "12:00–1:30 pm"
 #   location: "Encina Hall, Stanford"
 #   summary: "A half-day session on what third-party model audits can and cannot establish."
 #   url: "https://example.com/register"
+
+# --- Stanford Law AI Initiative Speaker Series, autumn 2026 ---
+# https://law.stanford.edu/ai-initiative/events-ai/
+
+- date: 2026-10-01
+  title: "The Politics of AI"
+  host: lab
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with Professor Nate Persily of Stanford Law School."
+  url: "https://law.stanford.edu/event/the-politics-of-ai/"
+
+- date: 2026-10-08
+  title: "Privilege Risk in the Age of AI"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with Jina Choi of Gibson Dunn, moderated by Professor Nate Persily."
+  url: "https://law.stanford.edu/event/privilege-risk-in-the-age-of-ai/"
+
+- date: 2026-10-22
+  title: "The Emergence of AI Insurance and a New Incentive for Safer AI"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with Philip Dawson of Armilla."
+  url: "https://law.stanford.edu/event/ai-initiative-speaker-series-4/"
+
+- date: 2026-10-29
+  title: "Manage the Machine: Human AI Collaboration and Agentic Governance"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with Paula Goldman of Salesforce."
+  url: "https://law.stanford.edu/event/ai-initiative-speaker-series-8/"
+
+- date: 2026-11-05
+  title: "Building the AI Frontier: A View from Inside Amazon"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with David Zapolsky of Amazon."
+  url: "https://law.stanford.edu/event/ai-initiative-speaker-series-7/"
+
+- date: 2026-11-12
+  title: "The AI-Native Law Firm: Hype, Reality, and What's Next"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series panel with Ryan Daniels, Alisa Hall, and Chris Kercher, moderated by Professor David Freeman Engstrom."
+  url: "https://law.stanford.edu/event/ai-initiative-speaker-series-6/"
+
+- date: 2026-11-19
+  title: "How to Make AI Agents Obey the Law"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 270, Stanford Law School"
+  summary: "AI Initiative Speaker Series, with Christina Knight, formerly of Scale AI, and Stephanie Sharron of Morrison & Foerster."
+  url: "https://law.stanford.edu/event/ai-initiative-speaker-series-5/"

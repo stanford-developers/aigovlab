@@ -113,30 +113,89 @@ title: Home
 <section id="events" class="band band-alt">
   <div class="wrap">
     <h2 class="section-heading">Events</h2>
-    {%- comment -%} Items live in _data/events.yml, soonest first. {%- endcomment -%}
-    {%- if site.data.events.size > 0 %}
-    <ul class="news-list">
-      {%- for event in site.data.events %}
-      <li class="news-item">
-        <p class="news-date">
-          <time datetime="{{ event.date | date: '%Y-%m-%d' }}">{{ event.date | date: "%b %-d, %Y" }}</time>
-        </p>
-        <p class="news-body">
-          {%- if event.url %}
-          <a href="{{ event.url }}" target="_blank" rel="noopener">{{ event.title | escape }}</a>
-          {%- else %}
-          <span class="news-title">{{ event.title | escape }}</span>
-          {%- endif %}
-          {%- if event.location %}<span class="news-outlet">{{ event.location | escape }}</span>{% endif %}
-          {%- if event.summary %}<span class="news-summary">{{ event.summary | strip_newlines | escape }}</span>{% endif %}
-        </p>
-      </li>
+    {%- comment -%}
+      Items live in _data/events.yml, in any order — they are sorted by date
+      here. Past events are dropped at build time, and again in the browser by
+      events.js, since the site only rebuilds when something is pushed.
+
+      The key's labels and the host line under each event come from the same
+      table, so a host added here shows up in both places. Its color is set in
+      style.css under `[data-host]`.
+    {%- endcomment -%}
+    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,recommended|Recommended|Recommended by the lab" | split: "," %}
+    {%- assign today = site.time | date: "%Y%m%d" | plus: 0 %}
+    {%- comment -%} A file with no entries loads as `false`, which `sort` rejects. {%- endcomment -%}
+    {%- if site.data.events %}
+    {%- assign events = site.data.events | sort: "date" %}
+    {%- else %}
+    {%- assign events = "" | split: "" %}
+    {%- endif %}
+    {%- assign upcoming = 0 %}
+    {%- for event in events %}
+      {%- assign d = event.date | date: "%Y%m%d" | plus: 0 %}
+      {%- if d >= today %}{% assign upcoming = upcoming | plus: 1 %}{% endif %}
+    {%- endfor %}
+
+    <ul class="event-key" aria-label="Key"{% if upcoming == 0 %} hidden{% endif %}>
+      {%- for h in hosts %}
+      {%- assign parts = h | split: "|" %}
+      <li><span class="event-mark" data-host="{{ parts[0] }}"></span>{{ parts[1] }}</li>
       {%- endfor %}
     </ul>
-    {%- else %}
-    <p class="empty-state">Check back soon for event updates.</p>
-    {%- endif %}
+
+    <div class="events-layout"{% if upcoming == 0 %} hidden{% endif %}>
+      {%- comment -%} Filled in by events.js; without it the list stands alone. {%- endcomment -%}
+      <div class="event-calendars"></div>
+
+      <div class="event-agenda">
+        {%- assign month = "" %}
+        {%- for event in events %}
+        {%- assign d = event.date | date: "%Y%m%d" | plus: 0 %}
+        {%- if d < today %}{% continue %}{% endif %}
+        {%- assign m = event.date | date: "%Y-%m" %}
+        {%- if m != month %}
+        {%- unless month == "" %}
+        </ol></div>
+        {%- endunless %}
+        {%- assign month = m %}
+        <div class="event-month" data-month="{{ m }}">
+          <h3 class="event-month-name">{{ event.date | date: "%B %Y" }}</h3>
+          <ol class="event-list">
+        {%- endif %}
+        {%- assign host = event.host | default: "lab" %}
+        {%- assign host_line = "" %}
+        {%- for h in hosts %}
+          {%- assign parts = h | split: "|" %}
+          {%- if parts[0] == host %}{% assign host_line = parts[2] %}{% endif %}
+        {%- endfor %}
+            <li class="event" id="event-{{ event.date | date: '%Y-%m-%d' }}-{{ forloop.index }}" data-date="{{ event.date | date: '%Y-%m-%d' }}" data-host="{{ host }}">
+              <time class="event-date" datetime="{{ event.date | date: '%Y-%m-%d' }}">
+                <span class="event-day">{{ event.date | date: "%-d" }}</span>
+                <span class="event-weekday">{{ event.date | date: "%a" }}</span>
+              </time>
+              <div class="event-body">
+                {%- if event.url %}
+                <a class="event-title" href="{{ event.url }}" target="_blank" rel="noopener">{{ event.title | escape }}</a>
+                {%- else %}
+                <span class="event-title">{{ event.title | escape }}</span>
+                {%- endif %}
+                {%- if event.time or event.location %}
+                <span class="event-where">{{ event.time | escape }}{% if event.time and event.location %}, {% endif %}{{ event.location | escape }}</span>
+                {%- endif %}
+                {%- if event.summary %}<span class="event-summary">{{ event.summary | strip_newlines | escape }}</span>{% endif %}
+                <span class="event-host"><span class="event-mark" data-host="{{ host }}"></span>{{ host_line }}</span>
+              </div>
+            </li>
+        {%- endfor %}
+        {%- unless month == "" %}
+        </ol></div>
+        {%- endunless %}
+      </div>
+    </div>
+
+    <p class="empty-state event-empty"{% if upcoming > 0 %} hidden{% endif %}>Nothing on the calendar yet. <a href="#substack">Subscribe on Substack</a> to hear about the next event.</p>
   </div>
+  <script src="{{ '/assets/js/events.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </section>
 
 <section id="substack" class="band">
