@@ -890,6 +890,42 @@ footer {
   font-size: 0.88rem;
 }
 
+/* The logos take a row of their own above the name and links, in their own
+   colors on the light footer. Sized as on the hero, a step smaller. */
+.footer-logos {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logos a {
+  display: block;
+}
+
+.footer-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+
+.footer-logo-hai {
+  height: 34px;
+}
+
+.footer-logo-sls {
+  height: 23px;
+}
+
+/* Both logos are dark type drawn for a white page, so on the dark theme
+   they are knocked out to white, softened like the footer text. */
+:root[data-theme="dark"] .footer-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
 .footer-identity {
   display: flex;
   flex-wrap: wrap;
