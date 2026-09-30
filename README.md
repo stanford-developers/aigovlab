@@ -18,7 +18,7 @@ own pages.
 | Events | `index.html`, the `#events` section |
 | Research | `research.html` |
 | Teaching | `teaching.html` |
-| Substack | `index.html`, the `#substack` section |
+| Stay in Touch | `index.html`, the `#substack` section |
 
 The nav is generated from `_data/nav.yml`, so the tabs exist in exactly one
 place. A tab with `section: true` scrolls to a homepage section whose HTML `id`
