@@ -4,12 +4,14 @@
 # While the file is empty the page shows a "check back soon" message.
 #
 #   title       the paper's title
-#   authors     list of names, in the order they appear on the paper
+#   authors     list of names, in the order they appear on the paper; names
+#               matching someone in people.yml are bolded automatically
 #   year        publication year
 #   venue       journal, conference, or "Working paper" — omit if unpublished
 #   details     volume/issue/pages, or a status note like "Conditionally accepted"
-#   links       any of: pdf, doi, url, code, data — each a full URL; each one
-#               renders as a small button, so leave out the ones that don't apply
+#   links       any of: pdf, doi, url, code, data — each a full URL. The title
+#               links to the doi (or else the url, or else the pdf); the rest
+#               show as small links underneath. Leave out the ones that don't apply
 #
 # Copy this shape:
 #
@@ -21,3 +23,34 @@
 #   links:
 #     pdf: "https://example.org/paper.pdf"
 #     doi: "https://doi.org/10.0000/example"
+
+- title: "Agents, Alignment, and the Many Faces of Autonomy"
+  authors: ["Roberta Fischli", "Matija Franklin", "Arianna Manzini", "Iason Gabriel"]
+  year: 2026
+  venue: "Minds and Machines"
+  details: "36(3): 34"
+  links:
+    doi: "https://doi.org/10.1007/s11023-026-09786-9"
+
+- title: "Architecting Trust in Artificial Epistemic Agents"
+  authors: ["Nahema Marchal", "Stephanie Chan", "Matija Franklin", "Manon Revel", "Geoff Keeling", "Roberta Fischli", "Bilva Chandra", "Iason Gabriel"]
+  year: 2026
+  details: "arXiv:2603.02960"
+  links:
+    url: "https://arxiv.org/abs/2603.02960"
+
+- title: "Empowering Digital Democracy"
+  authors: ["Roberta Fischli", "James Muldoon"]
+  year: 2024
+  venue: "Perspectives on Politics"
+  details: "22(3): 819–835"
+  links:
+    doi: "https://doi.org/10.1017/S1537592724000409"
+
+- title: "Data-Owning Democracy: Citizen Empowerment through Data Ownership"
+  authors: ["Roberta Fischli"]
+  year: 2024
+  venue: "European Journal of Political Theory"
+  details: "23(2): 204–223"
+  links:
+    doi: "https://doi.org/10.1177/14748851221110316"
