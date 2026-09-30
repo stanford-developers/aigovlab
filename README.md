@@ -164,8 +164,8 @@ and hides events once their day has passed. Everything but `date` and `title`
 is optional.
 
 `host` sets the event's color on the calendar and its line in the key: `lab`
-(the default), `hai`, `sls`, or `recommended` for someone else's event worth
-attending. The colors live in `style.css` as `--host-*`.
+(the default), `hai`, `sls`, or `related` for someone else's event on the lab's
+subject matter. The colors live in `style.css` as `--host-*`.
 
 For an event that runs more than one day, add `end_date`. It's marked on every
 day it runs and stays listed until the last one.

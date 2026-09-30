@@ -123,7 +123,7 @@ title: Home
       table, so a host added here shows up in both places. Its color is set in
       style.css under `[data-host]`.
     {%- endcomment -%}
-    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,recommended|Recommended|Recommended by the lab" | split: "," %}
+    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,related|Related|Related event" | split: "," %}
     {%- assign today = site.time | date: "%Y%m%d" | plus: 0 %}
     {%- comment -%} A file with no entries loads as `false`, which `sort` rejects. {%- endcomment -%}
     {%- if site.data.events %}

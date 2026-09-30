@@ -13,7 +13,7 @@
 #               lab          the AI Governance Lab (the default if left out)
 #               hai          Stanford HAI
 #               sls          Stanford Law School
-#               recommended  someone else's event the lab thinks is worth going to
+#               related      someone else's event on the lab's subject matter
 #   time      free text, e.g. "4:00–5:30 pm" — optional
 #   location  room, building, or "Online" — optional
 #   summary   a sentence on what it is — optional
@@ -98,13 +98,6 @@
   summary: "HAI seminar with Daniel Zhang, Caroline Meinhardt, Jiajun Wu, and Russell Wald."
   url: "https://hai.stanford.edu/events/world-model-and-spatial-intelligence-era"
 
-- date: 2026-10-02
-  end_date: 2026-10-03
-  title: "Empirical Methods in the Age of AI"
-  host: hai
-  location: "Simonyi Conference Center, CoDa"
-  summary: "A two-day HAI conference on how AI is changing the way researchers collect, analyze, and learn from data."
-  url: "https://hai.stanford.edu/events/empirical-methods-in-the-age-of-ai"
 
 - date: 2026-10-02
   title: "Measuring AI in the Real World"

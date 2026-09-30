@@ -22,12 +22,12 @@
   --switch-knob: #ffffff;
 
   /* Event hosts, from Stanford's identity palette: cardinal for the lab,
-     Lagunita for HAI, a darkened Poppy for the Law School. Recommended events
+     Lagunita for HAI, a darkened Poppy for the Law School. Related events
      get an outline in ink rather than a fourth hue — not ours, but worth it. */
   --host-lab: #8c1515;
   --host-hai: #007c92;
   --host-sls: #b26b00;
-  --host-rec: #5c5850;
+  --host-related: #5c5850;
 
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -54,7 +54,7 @@
   --host-lab: #e39494;
   --host-hai: #5cc4d4;
   --host-sls: #e0a24a;
-  --host-rec: #a49c8e;
+  --host-related: #a49c8e;
 }
 
 *,
@@ -757,9 +757,9 @@ a.person-card:hover .avatar {
 [data-host="hai"] { --host: var(--host-hai); }
 [data-host="sls"] { --host: var(--host-sls); }
 
-.event-mark[data-host="recommended"] {
+.event-mark[data-host="related"] {
   background: transparent;
-  box-shadow: inset 0 0 0 1px var(--host-rec);
+  box-shadow: inset 0 0 0 1px var(--host-related);
 }
 
 .event-key {
