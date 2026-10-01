@@ -125,7 +125,7 @@ title: AI Governance Lab
       table, so a host added here shows up in both places. Its color is set in
       style.css under `[data-host]`.
     {%- endcomment -%}
-    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,eis|Ethics in Society event|Hosted by the McCoy Family Center for Ethics in Society,related|Related|Related event" | split: "," %}
+    {%- assign hosts = "lab|AI Governance Lab|Hosted by the lab,hai|HAI|Hosted by Stanford HAI,sls|Stanford Law School|Hosted by Stanford Law School,eis|Ethics in Society|Hosted by the McCoy Family Center for Ethics in Society,related|Related|Related event" | split: "," %}
     {%- assign today = site.time | date: "%Y%m%d" | plus: 0 %}
     {%- comment -%} A file with no entries loads as `false`, which `sort` rejects. {%- endcomment -%}
     {%- if site.data.events %}
