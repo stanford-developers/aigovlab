@@ -198,7 +198,7 @@ People does.
 
 ### Refreshing the Substack posts
 
-The bottom of the homepage lists the three most recent newsletter posts, under
+The bottom of the homepage lists the five most recent newsletter posts, under
 the subscribe box. They come from `_data/substack.yml`, which is generated from
 the Substack RSS feed. To pull in new posts, run:
 
@@ -220,7 +220,7 @@ access, so the feed cannot be read at build time, Substack blocks automated
 clients such as CI runners from fetching the feed at all, and doing it in the
 browser would put a third-party request on every page load. Re-run it whenever
 you want the homepage to catch up; nothing breaks if it goes a while between
-runs, the list just shows older posts. To list more or fewer than three, change
+runs, the list just shows older posts. To list more or fewer than five, change
 `POST_COUNT` at the top of the script and re-run it.
 
 ### Contact email and link previews

@@ -3,8 +3,14 @@
 #
 #   ruby script/update-substack.rb
 #
-# Last fetched 2026-09-22.
+# Last fetched 2026-10-01.
 ---
+- title: What is AI Governance & Why Is It So Hard?
+  url: https://aigovlab.substack.com/p/what-is-ai-governance-and-why-is
+  date: '2026-10-01'
+  summary: 'Adapted from Stanford CS283: Governing AI | Week One, Fall 2026'
+  author: Rob Reich
+  image: "/assets/img/substack/what-is-ai-governance-and-why-is.jpg"
 - title: 'AI for Social Good: Beyond Pilot Projects and PR'
   url: https://aigovlab.substack.com/p/ai-for-social-good-beyond-pilot-projects
   date: '2026-09-15'

@@ -35,7 +35,7 @@ IMAGE_PATH = "/assets/img/substack"
 
 # How many posts the homepage lists. This is the only edit needed to show more
 # or fewer; the template loops over whatever ends up in the file.
-POST_COUNT = 3
+POST_COUNT = 5
 
 # Substack serves the feed to a request that identifies itself; the bare
 # default Ruby user agent gets turned away.
