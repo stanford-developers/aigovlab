@@ -14,6 +14,7 @@
 #               lab          the AI Governance Lab (the default if left out)
 #               hai          Stanford HAI
 #               sls          Stanford Law School
+#               eis          the McCoy Family Center for Ethics in Society
 #               related      someone else's event on the lab's subject matter
 #   time      free text, e.g. "4:00–5:30 pm" — optional
 #   location  room, building, or "Online" — optional
@@ -131,3 +132,30 @@
   location: "Gates Computer Science, Room 119"
   summary: "HAI seminar with Michael Wooldridge of Oxford on the third AI100 report."
   url: "https://hai.stanford.edu/events/hai-seminar-the-ai-100"
+
+# --- McCoy Family Center for Ethics in Society, autumn 2026 ---
+# https://ethicsinsociety.stanford.edu/events
+
+- date: 2026-10-09
+  title: "Confucianism, Communism, and AI: The Ethical Underpinnings of AI in China"
+  host: eis
+  time: "11:30 am–1:00 pm"
+  location: "Graham Stuart Lounge, Encina Hall West, Room 400"
+  summary: "Political Theory Workshop with Daniel Bell of the University of Hong Kong."
+  url: "https://ethicsinsociety.stanford.edu/events/confucianism-communism-and-ai-ethical-underpinnings-ai-china"
+
+- date: 2026-10-26
+  title: "Revolutionizing Privacy and AI with Meredith Whittaker"
+  host: eis
+  time: "5:00–6:00 pm"
+  location: "Simonyi Conference Center, CoDa"
+  summary: "Signal President Meredith Whittaker in conversation with Professor Lowry Pressly on collective action and resistance in the age of AI."
+  url: "https://ethicsinsociety.stanford.edu/events/revolutionizing-privacy-and-ai-meredith-whittaker"
+
+- date: 2026-11-05
+  title: "What Do We Owe Each Other in the Age of AI?"
+  host: eis
+  time: "5:00–6:30 pm"
+  location: "Paul Brest Hall"
+  summary: "Arrow Lecture by Betsey Stevenson of the University of Michigan, with Professor Lukas Althoff as discussant."
+  url: "https://ethicsinsociety.stanford.edu/events/what-do-we-owe-each-other-age-ai"

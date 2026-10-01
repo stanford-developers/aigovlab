@@ -125,7 +125,7 @@ title: AI Governance Lab
       table, so a host added here shows up in both places. Its color is set in
       style.css under `[data-host]`.
     {%- endcomment -%}
-    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,related|Related|Related event" | split: "," %}
+    {%- assign hosts = "lab|Lab event|Hosted by the lab,hai|HAI event|Hosted by Stanford HAI,sls|Stanford Law event|Hosted by Stanford Law School,eis|Ethics in Society event|Hosted by the McCoy Family Center for Ethics in Society,related|Related|Related event" | split: "," %}
     {%- assign today = site.time | date: "%Y%m%d" | plus: 0 %}
     {%- comment -%} A file with no entries loads as `false`, which `sort` rejects. {%- endcomment -%}
     {%- if site.data.events %}
@@ -206,7 +206,7 @@ title: AI Governance Lab
         {%- unless month == "" %}
         </ol></div>
         {%- endunless %}
-        <p class="event-more">For more on campus, see the <a href="https://law.stanford.edu/ai-initiative/events-ai/" target="_blank" rel="noopener">Stanford Law AI Initiative</a> and <a href="https://hai.stanford.edu/events" target="_blank" rel="noopener">Stanford HAI</a> event pages.</p>
+        <p class="event-more">For more on campus, see the <a href="https://law.stanford.edu/ai-initiative/events-ai/" target="_blank" rel="noopener">Stanford Law AI Initiative</a>, <a href="https://hai.stanford.edu/events" target="_blank" rel="noopener">Stanford HAI</a>, and <a href="https://ethicsinsociety.stanford.edu/events" target="_blank" rel="noopener">Ethics in Society</a> event pages.</p>
       </div>
     </div>
 
