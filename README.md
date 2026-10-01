@@ -209,7 +209,9 @@ ruby script/update-substack.rb
 then commit the changed `_data/substack.yml` along with anything that changed
 under `assets/img/substack/` — each post's cover image is downloaded there
 rather than hotlinked, and covers for posts that have dropped off the list are
-deleted on each run. The script needs nothing but Ruby — no `bundle`, no gems —
+deleted on each run. Bylines come from Substack's post API rather than the
+feed, which names only a post's first author, so co-authors and guests show up
+too. The script needs nothing but Ruby — no `bundle`, no gems —
 and it reads the newsletter address from `substack_url` in `_config.yml`. If
 `jekyll serve` is running while you refresh, restart it: its file watcher does
 not notice the cover directory being replaced, and you will keep seeing the old

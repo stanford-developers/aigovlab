@@ -22,6 +22,7 @@ require "yaml"
 require "cgi"
 require "time"
 require "fileutils"
+require "json"
 
 ROOT = File.expand_path("..", __dir__)
 CONFIG = File.join(ROOT, "_config.yml")
@@ -43,11 +44,15 @@ USER_AGENT = "aigovlab-website-feed-fetcher (+https://aigovlab.stanford.edu)"
 
 # The newsletter URL lives in _config.yml so the site and this script cannot
 # drift apart. YAML.load_file is enough — the config is plain scalars.
-def feed_url
+def substack_url
   base = YAML.load_file(CONFIG)["substack_url"]
   abort "No `substack_url` in _config.yml" if base.nil? || base.empty?
 
-  URI.join(base, "feed")
+  base
+end
+
+def feed_url
+  URI.join(substack_url, "feed")
 end
 
 def fetch(uri, redirects_left = 5)
@@ -132,6 +137,26 @@ def download_cover(url, slug)
   "#{IMAGE_PATH}/#{slug}#{extension}"
 end
 
+# The feed's <dc:creator> names only a post's first author, so co-authors and
+# guest bylines would silently go missing. Substack's post API lists them all,
+# in the order the post shows them. Falls back to the feed's author if the API
+# returns no bylines.
+def byline_names(slug)
+  body = fetch(URI.join(substack_url, "api/v1/posts/#{slug}")).body
+  JSON.parse(body).fetch("publishedBylines", []).filter_map { |byline| byline["name"] }
+rescue JSON::ParserError
+  warn "  could not read the bylines for #{slug}; using the feed's author"
+  []
+end
+
+# Joined the way Substack writes them: "A", "A and B", "A, B, and C".
+def byline(names)
+  return names.first if names.length < 2
+  return names.join(" and ") if names.length == 2
+
+  "#{names[0..-2].join(', ')}, and #{names.last}"
+end
+
 # Covers from posts that have dropped off the list would otherwise sit in the
 # repo forever.
 def prune_covers(keep)
@@ -153,7 +178,7 @@ def posts_from(xml)
       "url" => plain_text(item.elements["link"]),
       "date" => published_date(item.elements["pubDate"]),
       "summary" => plain_text(item.elements["description"]),
-      "author" => plain_text(item.elements["dc:creator"]),
+      "author" => byline(byline_names(slug_for(item))) || plain_text(item.elements["dc:creator"]),
       # <enclosure> is where Substack puts the post's cover image. Posts
       # published without one simply render as a card with no picture.
       "image" => download_cover(item.elements["enclosure"]&.attributes&.[]("url"), slug_for(item))
