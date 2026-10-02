@@ -58,6 +58,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - CLAUDE.md
   # The Substack refresh script is run by hand, not served.
   - script
   - vendor

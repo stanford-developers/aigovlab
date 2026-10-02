@@ -121,7 +121,11 @@ convention — to reorder them, move the blocks in `_data/people.yml`.
 with a light red highlight on hover. Leave it out and the card renders as plain
 text instead.
 
-Set `photo_position: top` if centering crops the person's head awkwardly.
+Headshots are pre-cropped to a square (at least 360px) with the face centered
+and filling a bit under half the frame, so every avatar circle reads at the
+same scale. Crop a new photo the same way before adding it; `photo_position:
+top` is a fallback for an uncropped portrait whose head gets cut off.
+
 Moving someone to `group: alumni` moves them to a "Lab Alumni" section, which
 stays hidden while it's empty.
 

@@ -531,6 +531,10 @@ nav#top-nav {
    brings it down to two. `max-width: 100%` above still applies, so on a phone
    the card shrinks to the screen and the pair stacks one per row rather than
    overflowing. */
+.people-grid-faculty {
+  justify-content: center;
+}
+
 .people-grid-faculty .person {
   flex-basis: 300px;
 }
