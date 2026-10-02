@@ -1,5 +1,6 @@
 // Events section: draws this month and next as small calendars beside the
-// list, and drops events that have passed. The list itself is rendered by
+// list, drops events that have passed, and folds the list after the first few
+// behind a "Show more" button that also folds it back. The list itself is rendered by
 // Jekyll, so without this script the section still works — just as a list
 // that is as current as the last build.
 
@@ -153,6 +154,54 @@
   var m = now.getMonth();
   cals.appendChild(month(y, m));
   cals.appendChild(month(m === 11 ? y + 1 : y, (m + 1) % 12));
+
+  // --- Fold the list after the first few ---
+  var SHOWN = 5;
+  var extra = items.slice(SHOWN);
+
+  if (extra.length) {
+    var agenda = section.querySelector('.event-agenda');
+    var toggle = el('button', 'event-toggle');
+    toggle.type = 'button';
+    agenda.insertBefore(toggle, agenda.querySelector('.event-more'));
+
+    var setOpen = function (open) {
+      extra.forEach(function (li) { li.hidden = !open; });
+      [].forEach.call(agenda.querySelectorAll('.event-month'), function (g) {
+        g.hidden = !g.querySelector('.event:not([hidden])');
+      });
+      toggle.textContent = open ? 'Show fewer' : 'Show more';
+      toggle.setAttribute('aria-expanded', open);
+    };
+    setOpen(false);
+
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') !== 'true';
+      setOpen(open);
+      // Folding the list pulls the button up past the top of the screen.
+      if (!open && toggle.getBoundingClientRect().top < 0) {
+        toggle.scrollIntoView({ block: 'center' });
+      }
+    });
+
+    // A calendar day, or a link to an event, can point at a folded one.
+    var reveal = function (target) {
+      if (target && extra.indexOf(target) !== -1 && target.hidden) {
+        setOpen(true);
+        return true;
+      }
+    };
+    cals.addEventListener('click', function (e) {
+      var day = e.target.closest('a.cal-day');
+      if (day) reveal(document.getElementById(day.getAttribute('href').slice(1)));
+    });
+    var revealHash = function () {
+      var target = location.hash && document.getElementById(location.hash.slice(1));
+      if (reveal(target)) target.scrollIntoView();
+    };
+    window.addEventListener('hashchange', revealHash);
+    revealHash();
+  }
 
   items.forEach(function (li) {
     if (!li.calDays) return;
