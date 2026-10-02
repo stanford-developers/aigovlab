@@ -92,7 +92,7 @@ Open `_data/people.yml` and copy an existing block:
 - name: Jane Doe
   last_name: Doe         # each group is alphabetized by this
   role: Postdoctoral Scholar
-  group: members         # faculty | members | alumni
+  group: postdocs        # faculty | postdocs | members | alumni
   photo: jane-doe.jpg    # file in assets/img/; omit for a blank circle
   url: https://example.edu/people/jane-doe
 ```

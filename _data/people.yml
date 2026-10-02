@@ -10,7 +10,7 @@
 #                  is their professorship, not their lab position — the
 #                  "Co-Directors" group heading already says that.
 #   group          which section they appear in; see _data/people_groups.yml
-#                  (faculty | members | alumni)
+#                  (faculty | postdocs | members | alumni)
 #   photo          filename inside assets/img/ — omit for a blank avatar circle
 #   photo_position "top" crops the portrait toward the top of the frame, for
 #                  photos where centering cuts off the head; omit otherwise
@@ -34,9 +34,17 @@
 - name: Dr. Roberta Fischli
   last_name: Fischli
   role: Postdoctoral Scholar
-  group: members
+  group: postdocs
   photo: roberta-fischli.jpg
   url: https://www.robertafischli.com/
+
+- name: Dr. Kavya Ravichandran
+  last_name: Ravichandran
+  role: Postdoctoral Scholar
+  group: postdocs
+  photo: kavya-ravichandran.jpeg
+  photo_position: top
+  url: https://kavyar314.github.io/
 
 - name: Yasi Khan
   last_name: Khan

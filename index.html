@@ -54,12 +54,15 @@ title: AI Governance Lab
       group is alphabetized by the `last_name` field rather than by the order
       of the data file, so adding someone never means resorting it by hand —
       except where the group sets `order: listed`, which is for sections whose
-      order is a deliberate choice rather than a convention.
+      order is a deliberate choice rather than a convention. Groups marked
+      `width: full` take a whole row; the rest sit two to a row on desktop.
     {%- endcomment -%}
+    <div class="people-groups">
     {%- for group in site.data.people_groups %}
       {%- assign members = site.data.people | where: "group", group.id %}
       {%- unless group.order == "listed" %}{% assign members = members | sort: "last_name" %}{% endunless %}
       {%- if members.size > 0 %}
+    <div class="people-group{% if group.width == 'full' %} people-group-full{% endif %}">
     <h3 class="group-heading">{{ group.heading }}</h3>
     <ul class="people-grid people-grid-{{ group.id }}">
       {%- for person in members %}
@@ -80,8 +83,10 @@ title: AI Governance Lab
       </li>
       {%- endfor %}
     </ul>
+    </div>
       {%- endif %}
     {%- endfor %}
+    </div>
   </div>
 </section>
 

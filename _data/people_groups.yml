@@ -3,10 +3,17 @@
 #
 # Groups are alphabetized by each person's `last_name` unless they set
 # `order: listed`, which keeps them in the order they appear in _data/people.yml.
+#
+# On desktop, groups sit two to a row unless they set `width: full`, which gives
+# them a row of their own. Postdocs and members are small enough to share one.
 - id: faculty
   heading: Co-Directors
   order: listed
+  width: full
+- id: postdocs
+  heading: Postdoctoral Scholars
 - id: members
   heading: Lab Members
 - id: alumni
   heading: Lab Alumni
+  width: full
