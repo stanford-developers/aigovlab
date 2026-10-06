@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Refreshes _data/substack.yml from the lab's Substack RSS feed.
+# Refreshes _data/substack.yml from the lab's Substack archive.
 #
 #   ruby script/update-substack.rb
 #
 # The homepage renders whatever is in that file, so the posts it lists only
 # change when someone runs this and commits the result. That is deliberate:
 # GitHub Pages builds with a fixed plugin set and no network access, so the
-# feed cannot be read at build time, and reading it from the browser would put
+# archive cannot be read at build time, and reading it from the browser would put
 # a third-party request on every page load. Committing the data keeps the
 # published page self-contained and reviewable.
 #
@@ -17,7 +17,6 @@
 
 require "net/http"
 require "uri"
-require "rexml/document"
 require "yaml"
 require "cgi"
 require "time"
@@ -38,7 +37,7 @@ IMAGE_PATH = "/assets/img/substack"
 # or fewer; the template loops over whatever ends up in the file.
 POST_COUNT = 5
 
-# Substack serves the feed to a request that identifies itself; the bare
+# Substack serves the archive to a request that identifies itself; the bare
 # default Ruby user agent gets turned away.
 USER_AGENT = "aigovlab-website-feed-fetcher (+https://aigovlab.stanford.edu)"
 
@@ -51,8 +50,11 @@ def substack_url
   base
 end
 
-def feed_url
-  URI.join(substack_url, "feed")
+# The archive API rather than the RSS feed, because the feed leaves out
+# crossposts — posts from another newsletter that the lab has restacked onto
+# its own — and the archive lists them alongside the lab's own posts.
+def archive_url
+  URI.join(substack_url, "api/v1/archive?sort=new&limit=#{POST_COUNT}")
 end
 
 def fetch(uri, redirects_left = 5)
@@ -69,26 +71,12 @@ def fetch(uri, redirects_left = 5)
   end
 end
 
-# Feed fields arrive as CDATA and may carry HTML (Substack puts the post
-# subtitle in <description>, sometimes wrapped in a tag). Strip the markup,
-# unescape the entities, and collapse whitespace so each value stays a single
-# readable line of YAML.
-def plain_text(node)
-  return nil if node.nil?
+# Subtitles can carry stray HTML entities or line breaks. Collapse them so
+# each value stays a single readable line of YAML.
+def plain_text(text)
+  return nil if text.nil?
 
-  text = node.texts.map(&:value).join
   CGI.unescape_html(text.gsub(%r{<[^>]+>}, " ")).gsub(/\s+/, " ").strip
-end
-
-# pubDate is RFC 822. Store it as a plain date so Liquid's `date` filter can
-# format it the same way the news and events lists do.
-def published_date(node)
-  raw = plain_text(node)
-  return nil if raw.nil? || raw.empty?
-
-  Time.rfc2822(raw).strftime("%Y-%m-%d")
-rescue ArgumentError
-  abort "Could not read the publication date #{raw.inspect}"
 end
 
 # Substack's CDN takes Cloudinary-style transforms in the URL, so ask it for a
@@ -100,13 +88,6 @@ end
 # carry no signature to transform and come down at full size; CSS crops those
 # to the same shape, though only from the center.
 CARD_TRANSFORM = "w_424,h_282,c_fill,g_auto"
-
-# Post URLs end in a slug (.../p/a-congress-of-robert-reichs), which makes a
-# stable, readable filename for that post's cover.
-def slug_for(item)
-  link = plain_text(item.elements["link"]).to_s
-  File.basename(URI.parse(link).path)
-end
 
 def card_sized(url)
   url.sub(%r{(/image/fetch/\$s_![^!]+!,)}) { "#{Regexp.last_match(1)}#{CARD_TRANSFORM}," }
@@ -137,18 +118,6 @@ def download_cover(url, slug)
   "#{IMAGE_PATH}/#{slug}#{extension}"
 end
 
-# The feed's <dc:creator> names only a post's first author, so co-authors and
-# guest bylines would silently go missing. Substack's post API lists them all,
-# in the order the post shows them. Falls back to the feed's author if the API
-# returns no bylines.
-def byline_names(slug)
-  body = fetch(URI.join(substack_url, "api/v1/posts/#{slug}")).body
-  JSON.parse(body).fetch("publishedBylines", []).filter_map { |byline| byline["name"] }
-rescue JSON::ParserError
-  warn "  could not read the bylines for #{slug}; using the feed's author"
-  []
-end
-
 # Joined the way Substack writes them: "A", "A and B", "A, B, and C".
 def byline(names)
   return names.first if names.length < 2
@@ -170,28 +139,45 @@ def prune_covers(keep)
   end
 end
 
-def posts_from(xml)
-  REXML::Document.new(xml).elements.to_a("rss/channel/item").first(POST_COUNT).map do |item|
+# A crosspost's archive entry points at a /cp/ redirect and carries the
+# restacker's byline rather than the authors'. Its own publication's post API
+# has the real address and the full byline list, so read those from there.
+def original_of(post)
+  origin = URI.parse(post["canonical_url"])
+  body = fetch(URI.join("#{origin.scheme}://#{origin.host}/", "api/v1/posts/#{post["slug"]}")).body
+  JSON.parse(body)
+rescue JSON::ParserError
+  warn "  could not read the original of #{post["slug"]}; using the crosspost's details"
+  post
+end
+
+def posts_from(json)
+  JSON.parse(json).first(POST_COUNT).map do |post|
+    source = post["type"] == "restack" ? original_of(post) : post
+    names = source.fetch("publishedBylines", []).filter_map { |b| b["name"] }
+
     {
       # Keys are ordered the way the template reads them.
-      "title" => plain_text(item.elements["title"]),
-      "url" => plain_text(item.elements["link"]),
-      "date" => published_date(item.elements["pubDate"]),
-      "summary" => plain_text(item.elements["description"]),
-      "author" => byline(byline_names(slug_for(item))) || plain_text(item.elements["dc:creator"]),
-      # <enclosure> is where Substack puts the post's cover image. Posts
-      # published without one simply render as a card with no picture.
-      "image" => download_cover(item.elements["enclosure"]&.attributes&.[]("url"), slug_for(item))
+      "title" => plain_text(post["title"]),
+      "url" => source["canonical_url"],
+      "date" => Time.parse(post["post_date"]).strftime("%Y-%m-%d"),
+      "summary" => plain_text(post["subtitle"] || post["description"]),
+      # Lists every byline, in the order the post shows them — not just the
+      # first author.
+      "author" => byline(names),
+      # Posts published without a cover simply render as a card with no
+      # picture.
+      "image" => download_cover(post["cover_image"], post["slug"])
     }.reject { |_, value| value.nil? || value.empty? }
   end
 end
 
-posts = posts_from(fetch(feed_url).body)
+posts = posts_from(fetch(archive_url).body)
 prune_covers(posts.map { |post| post["image"] }.compact)
 
 # Better to keep the last good list on the page than to blank the section out
-# because the feed came back empty.
-abort "The feed returned no posts; leaving _data/substack.yml as it is." if posts.empty?
+# because the archive came back empty.
+abort "The archive returned no posts; leaving _data/substack.yml as it is." if posts.empty?
 
 header = <<~YAML
   # The most recent posts from the lab's Substack, listed at the bottom of the

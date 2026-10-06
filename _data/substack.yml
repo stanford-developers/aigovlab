@@ -3,8 +3,14 @@
 #
 #   ruby script/update-substack.rb
 #
-# Last fetched 2026-10-01.
+# Last fetched 2026-10-06.
 ---
+- title: 'Technical Foundations: The Three Phases of AI Development'
+  url: https://ankareuel.substack.com/p/technical-foundations-the-three-phases
+  date: '2026-10-06'
+  summary: 'Adapted from Stanford CS283: Governing AI | Week Two, Fall 2026'
+  author: Anka Reuel and Rob Reich
+  image: "/assets/img/substack/technical-foundations-the-three-phases.jpg"
 - title: What is AI Governance & Why Is It So Hard?
   url: https://aigovlab.substack.com/p/what-is-ai-governance-and-why-is
   date: '2026-10-01'

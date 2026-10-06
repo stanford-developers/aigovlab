@@ -57,7 +57,7 @@ rather than touching HTML.
 - `assets/js/events.js` — the Events calendars, and hiding past events
 - `assets/img/` — member photos, the hero image, and the favicon
 - `assets/img/substack/` — post cover images (generated, see below)
-- `script/update-substack.rb` — refreshes `_data/substack.yml` from the RSS feed
+- `script/update-substack.rb` — refreshes `_data/substack.yml` from the Substack archive
 
 ## Filling in real content
 
@@ -204,7 +204,7 @@ People does.
 
 The bottom of the homepage lists the five most recent newsletter posts, under
 the subscribe box. They come from `_data/substack.yml`, which is generated from
-the Substack RSS feed. To pull in new posts, run:
+the Substack archive. To pull in new posts, run:
 
 ```sh
 ruby script/update-substack.rb
@@ -213,17 +213,19 @@ ruby script/update-substack.rb
 then commit the changed `_data/substack.yml` along with anything that changed
 under `assets/img/substack/` — each post's cover image is downloaded there
 rather than hotlinked, and covers for posts that have dropped off the list are
-deleted on each run. Bylines come from Substack's post API rather than the
-feed, which names only a post's first author, so co-authors and guests show up
-too. The script needs nothing but Ruby — no `bundle`, no gems —
+deleted on each run. The script reads Substack's archive API rather than the
+RSS feed, because the feed leaves out crossposts — posts from another
+newsletter restacked onto the lab's. A crosspost links to the original post
+and takes its bylines from there. Every byline is listed, so co-authors and
+guests show up too. The script needs nothing but Ruby — no `bundle`, no gems —
 and it reads the newsletter address from `substack_url` in `_config.yml`. If
 `jekyll serve` is running while you refresh, restart it: its file watcher does
 not notice the cover directory being replaced, and you will keep seeing the old
 images.
 
 This is a manual step on purpose. GitHub Pages builds the site with no network
-access, so the feed cannot be read at build time, Substack blocks automated
-clients such as CI runners from fetching the feed at all, and doing it in the
+access, so Substack cannot be read at build time, Substack blocks automated
+clients such as CI runners from fetching it at all, and doing it in the
 browser would put a third-party request on every page load. Re-run it whenever
 you want the homepage to catch up; nothing breaks if it goes a while between
 runs, the list just shows older posts. To list more or fewer than five, change
