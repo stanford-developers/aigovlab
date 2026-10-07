@@ -156,7 +156,7 @@
   cals.appendChild(month(m === 11 ? y + 1 : y, (m + 1) % 12));
 
   // --- Fold the list after the first few ---
-  var SHOWN = 5;
+  var SHOWN = 3;
   var extra = items.slice(SHOWN);
 
   if (extra.length) {
