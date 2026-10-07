@@ -90,6 +90,16 @@
   summary: "AI Initiative Speaker Series, with Christina Knight, formerly of Scale AI, and Stephanie Sharron of Morrison & Foerster."
   url: "https://law.stanford.edu/event/ai-initiative-speaker-series-5/"
 
+# --- Other Stanford Law School events, autumn 2026 ---
+
+- date: 2026-10-20
+  title: "The Future and Business of AI"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 290, Stanford Law School, and online"
+  summary: "Lunch conversation with Kevin Roose of Hard Fork and Ethan Mollick of Wharton on their new books, hosted by the Rock Center for Corporate Governance and the AI Initiative."
+  url: "https://law.stanford.edu/event/kevin-roose-ethan-mollick-the-future-and-business-of-ai/"
+
 # --- Stanford HAI, autumn 2026 ---
 
 - date: 2026-09-30
