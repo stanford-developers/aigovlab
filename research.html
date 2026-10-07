@@ -42,10 +42,11 @@ description: >-
         {%- if paper.year %} ({{ paper.year }}){% endif -%}
       </p>
       {%- endif %}
-      {%- comment -%} The title already opens the primary link; these are the extras. {%- endcomment -%}
+      {%- comment -%} The title already opens the primary link; these are the extras.
+        The PDF leads as a button, since it's what most readers are after. {%- endcomment -%}
       {%- capture extras -%}
+        {%- if paper.links.pdf and paper.links.pdf != primary %}<a class="pub-pdf" href="{{ paper.links.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
         {%- if paper.links.url and paper.links.url != primary %}<a href="{{ paper.links.url }}" target="_blank" rel="noopener">Web page</a>{% endif -%}
-        {%- if paper.links.pdf and paper.links.pdf != primary %}<a href="{{ paper.links.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
         {%- if paper.links.code %}<a href="{{ paper.links.code }}" target="_blank" rel="noopener">Code</a>{% endif -%}
         {%- if paper.links.data %}<a href="{{ paper.links.data }}" target="_blank" rel="noopener">Data</a>{% endif -%}
       {%- endcapture %}

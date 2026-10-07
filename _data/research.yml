@@ -11,7 +11,8 @@
 #   details     volume/issue/pages, or a status note like "Conditionally accepted"
 #   links       any of: pdf, doi, url, code, data — each a full URL. The title
 #               links to the doi (or else the url, or else the pdf); the rest
-#               show as small links underneath. Leave out the ones that don't apply
+#               show underneath, the pdf as a button and the others as small
+#               links. Leave out the ones that don't apply
 #
 # Copy this shape:
 #
@@ -49,6 +50,7 @@
   details: "36(3): 34"
   links:
     doi: "https://doi.org/10.1007/s11023-026-09786-9"
+    pdf: "https://link.springer.com/content/pdf/10.1007/s11023-026-09786-9.pdf"
 
 - title: "Architecting Trust in Artificial Epistemic Agents"
   authors: ["Nahema Marchal", "Stephanie Chan", "Matija Franklin", "Manon Revel", "Geoff Keeling", "Roberta Fischli", "Bilva Chandra", "Iason Gabriel"]
@@ -56,6 +58,7 @@
   details: "arXiv:2603.02960"
   links:
     url: "https://arxiv.org/abs/2603.02960"
+    pdf: "https://arxiv.org/pdf/2603.02960"
 
 - title: "Empowering Digital Democracy"
   authors: ["Roberta Fischli", "James Muldoon"]
@@ -64,6 +67,7 @@
   details: "22(3): 819–835"
   links:
     doi: "https://doi.org/10.1017/S1537592724000409"
+    pdf: "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D39CBD8C8061EA6EE1B0FE0D64FA9E5D/S1537592724000409a.pdf/div-class-title-empowering-digital-democracy-div.pdf"
 
 - title: "Data-Owning Democracy: Citizen Empowerment through Data Ownership"
   authors: ["Roberta Fischli"]
@@ -72,3 +76,4 @@
   details: "23(2): 204–223"
   links:
     doi: "https://doi.org/10.1177/14748851221110316"
+    pdf: "https://journals.sagepub.com/doi/pdf/10.1177/14748851221110316"

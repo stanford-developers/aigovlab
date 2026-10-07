@@ -1142,12 +1142,27 @@ span.event-title {
 }
 
 .pub-links {
-  margin: 0.4rem 0 0;
+  margin: 0.6rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1.1rem;
+  align-items: center;
+  gap: 0.4rem 1.1rem;
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+/* A smaller cousin of the events "Show more" button. */
+.pub-pdf {
+  padding: 0.3rem 0.95rem;
+  border: 1px solid var(--cardinal);
+  border-radius: 3px;
+  color: var(--cardinal);
+}
+
+.pub-pdf:hover {
+  background: var(--cardinal-tint);
+  color: var(--cardinal);
+  text-decoration: none;
 }
 
 /* ---------- Teaching ---------- */
