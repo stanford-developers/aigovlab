@@ -24,6 +24,24 @@
 #     pdf: "https://example.org/paper.pdf"
 #     doi: "https://doi.org/10.0000/example"
 
+- title: "Beyond Pilots and PR: What Makes AI-for-Good Partnerships Work"
+  authors: ["Vera Lummis", "Angela Aristidou", "Rob Reich"]
+  year: 2026
+  venue: "Stanford HAI"
+  details: "White paper"
+  links:
+    url: "https://hai.stanford.edu/policy/beyond-pilots-and-pr-what-makes-ai-for-good-partnerships-work"
+    pdf: "https://hai.stanford.edu/assets/files/hai-report-what-makes-ai-for-good-partnerships-work.pdf"
+
+- title: "Implementing the Transparency in Frontier AI Act: Report for the California Department of Technology Multistakeholder Workshops"
+  authors: ["Rob Reich", "Deirdre K. Mulligan"]
+  year: 2026
+  venue: "Stanford HAI"
+  details: "Policy response"
+  links:
+    url: "https://hai.stanford.edu/policy/implementing-the-transparency-in-frontier-ai-act-report-for-the-california-department-of-technology-multistakeholder-workshops"
+    pdf: "https://hai.stanford.edu/assets/files/hai-berkeley-implementing-the-tfaia-report.pdf"
+
 - title: "Agents, Alignment, and the Many Faces of Autonomy"
   authors: ["Roberta Fischli", "Matija Franklin", "Arianna Manzini", "Iason Gabriel"]
   year: 2026
