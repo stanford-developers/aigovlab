@@ -17,6 +17,12 @@
 #   summary: "What the story means for the lab."
 #   url: "https://example.com/story"
 
+- date: 2026-09-25
+  outlet: "Stanford HAI"
+  title: "Implementing the Transparency in Frontier AI Act: Report for the California Department of Technology Multistakeholder Workshops"
+  summary: "Co-Director Rob Reich and Berkeley's Deirdre K. Mulligan convened two workshops and delivered recommendations to the California Department of Technology on putting the state's frontier AI transparency law into practice."
+  url: "https://hai.stanford.edu/policy/implementing-the-transparency-in-frontier-ai-act-report-for-the-california-department-of-technology-multistakeholder-workshops"
+
 - date: 2026-09-23
   outlet: "Office of Governor Gavin Newsom"
   title: "Governor Newsom announces world-leading experts to deliver on his AI executive order, including advancing creation of a “kill switch”"
