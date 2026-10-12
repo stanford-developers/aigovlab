@@ -3,8 +3,14 @@
 #
 #   ruby script/update-substack.rb
 #
-# Last fetched 2026-10-06.
+# Last fetched 2026-10-11.
 ---
+- title: AI Agents and New Governance Challenges
+  url: https://ankareuel.substack.com/p/ai-agents-and-new-governance-challenges
+  date: '2026-10-09'
+  summary: 'Adapted from Stanford CS283: Governing AI | Week Two, Fall 2026'
+  author: Anka Reuel and Rob Reich
+  image: "/assets/img/substack/ai-agents-and-new-governance-challenges.jpg"
 - title: 'Technical Foundations: The Three Phases of AI Development'
   url: https://ankareuel.substack.com/p/technical-foundations-the-three-phases
   date: '2026-10-06'
@@ -31,10 +37,3 @@
     convened at Stanford University
   author: Rob Reich
   image: "/assets/img/substack/a-congress-of-robert-reichs.jpg"
-- title: Democracy and a Third Wave of American Philanthropy?
-  url: https://aigovlab.substack.com/p/democracy-and-a-third-wave-of-american
-  date: '2026-07-30'
-  summary: AI generated philanthropic wealth, and some unsolicited advice for soon-to-be-millionaires
-    at Anthropic and OpenAI
-  author: Rob Reich
-  image: "/assets/img/substack/democracy-and-a-third-wave-of-american.png"
