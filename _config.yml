@@ -21,11 +21,11 @@ substack_url: "https://aigovlab.substack.com/"
 # The lab's inbox, linked from the Stay in Touch section and the footer.
 contact_email: "aigovernancelab@stanford.edu"
 
-# The Google Tag Manager container, from tagmanager.google.com (it looks like
-# "GTM-XXXXXXX"). Leave it empty to load no tag at all. The tag loads only in
+# The Google Analytics measurement ID, from analytics.google.com (it looks like
+# "G-XXXXXXXXXX"). Leave it empty to load no tag at all. The tag loads only in
 # production builds, which is what GitHub Pages runs, so local
 # `jekyll serve` visits never reach the analytics.
-google_tag_manager_id: "GTM-5P2ZB5F7"
+google_analytics_id: "G-FLF0NQ7KZ0"
 
 # The photo behind the lab name at the top of the homepage. To change it, drop a
 # landscape image at least 1600px wide into assets/img/ and point this at it.

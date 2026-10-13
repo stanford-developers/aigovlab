@@ -8,10 +8,6 @@
 <html lang="en">
 {%- include head.html %}
 <body>
-  {%- if site.google_tag_manager_id != "" and jekyll.environment == "production" %}
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager_id }}"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  {%- endif %}
   <a class="skip-link" href="#main">Skip to content</a>
   {%- include nav.html %}
 
