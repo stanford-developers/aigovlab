@@ -135,6 +135,14 @@
   summary: "HAI conference with keynotes from Jeff Dean and Audrey Tang."
   url: "https://hai.stanford.edu/events/confronting-our-ai-future-hope-fear-and-the-choices-ahead"
 
+- date: 2026-11-09
+  title: "A Conversation with Jacob Coxon & Rob Reich"
+  host: lab
+  time: "4:30–5:30 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Co-hosted with HAI: former Anthropic and OpenAI researcher Jacob Coxon talks with Professor Rob Reich about leaving Anthropic and the tensions it reveals in the AI industry."
+  url: "https://hai.stanford.edu/events/a-conversation-with-jacob-coxon-rob-reich"
+
 - date: 2026-11-18
   title: "AI Goes Mainstream: The Scaling Era and the Rise of Generative AI"
   host: hai

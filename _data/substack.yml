@@ -3,8 +3,14 @@
 #
 #   ruby script/update-substack.rb
 #
-# Last fetched 2026-10-11.
+# Last fetched 2026-11-03.
 ---
+- title: 'AI Evaluations: You Can’t Easily Govern What You Can’t Easily Assess'
+  url: https://ankareuel.substack.com/p/ai-evaluations-you-cant-easily-govern
+  date: '2026-10-14'
+  summary: 'Adapted from Stanford CS283: Governing AI | Week Three, Fall 2026'
+  author: Anka Reuel and Rob Reich
+  image: "/assets/img/substack/ai-evaluations-you-cant-easily-govern.jpg"
 - title: AI Agents and New Governance Challenges
   url: https://ankareuel.substack.com/p/ai-agents-and-new-governance-challenges
   date: '2026-10-09'
@@ -30,10 +36,3 @@
     and nonprofit organizations
   author: Rob Reich
   image: "/assets/img/substack/ai-for-social-good-beyond-pilot-projects.jpg"
-- title: A Congress of Robert Reichs
-  url: https://aigovlab.substack.com/p/a-congress-of-robert-reichs
-  date: '2026-07-31'
-  summary: On April 12, 2016, Robert Reich and Rob Reich (with special guest Rob Reich)
-    convened at Stanford University
-  author: Rob Reich
-  image: "/assets/img/substack/a-congress-of-robert-reichs.jpg"
