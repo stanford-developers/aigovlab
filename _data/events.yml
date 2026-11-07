@@ -108,6 +108,30 @@
   summary: "Stanford AI Law Society lunch with Spencer Amdur of the Institute for Law & AI on independent auditors, AI oversight, and writing effective AI legislation."
   url: "https://law.stanford.edu/event/auditing-the-frontier-the-technical-and-legal-challenges-of-ai-oversight/"
 
+- date: 2026-11-13
+  title: "Privacy Law in Practice: Lunch with Sabrina Ross"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 280B, Stanford Law School"
+  summary: "Stanford Privacy and Cybersecurity Law Association lunch with Sabrina Ross, Chief Privacy Auditor of the California Privacy Protection Agency."
+  url: "https://law.stanford.edu/event/privacy-law-in-practice-lunch-sabrina-ross-chief-privacy-auditor-of-the-cppa/"
+
+- date: 2026-11-18
+  title: "AI Priorities for Boards of Directors 2.0"
+  host: sls
+  time: "11:00 am–12:30 pm"
+  location: "Online"
+  summary: "Final session of the Rock Center for Corporate Governance's online course on how boards should oversee AI."
+  url: "https://law.stanford.edu/event/ai-priorities-for-boards-of-directors-2-0-4/"
+
+- date: 2026-11-18
+  title: "Beyond the Billable Hour: The Future of Lawyering in the Age of AI"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 280A, Stanford Law School"
+  summary: "Panel of legal engineers from SLATA and Women of Stanford Law on how generative AI is changing legal practice, with a live demonstration."
+  url: "https://law.stanford.edu/event/beyond-the-billable-hour-the-future-of-lawyering-in-the-age-of-ai/"
+
 # --- Stanford HAI, autumn 2026 ---
 
 - date: 2026-09-30
@@ -183,6 +207,14 @@
   summary: "HAI seminar with Michael Wooldridge of Oxford on the third AI100 report."
   url: "https://hai.stanford.edu/events/hai-seminar-the-ai-100"
 
+- date: 2026-11-30
+  title: "The Eureka Machine: Why AI Is the Key to Unlocking a New Era of Scientific Discoveries"
+  host: hai
+  time: "12:00–1:00 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Digital Economy Lab seminar with Richard Socher, CEO of Recursive."
+  url: "https://digitaleconomy.stanford.edu/event/richard-socher-del-seminar-series/"
+
 - date: 2026-12-09
   title: "Gurus, Hucksters, Entertainers: How Influencers Reshaped Social Media"
   host: hai
@@ -190,6 +222,14 @@
   location: "Gates Computer Science, Room 119, and online"
   summary: "HAI seminar with Angèle Christin of Stanford and Hannah Zeavin of UC Berkeley, co-sponsored by Public Humanities at Stanford."
   url: "https://hai.stanford.edu/events/angele-christin-hannah-zeavin-gurus-hucksters-entertainers-how-influencers-reshaped-social-media"
+
+- date: 2026-12-14
+  title: "Annie Liang: DEL Seminar Series"
+  host: hai
+  time: "12:00–1:00 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Digital Economy Lab seminar with Annie Liang of Northwestern University."
+  url: "https://digitaleconomy.stanford.edu/event/annie-liang-del-seminar-series/"
 
 # --- McCoy Family Center for Ethics in Society, autumn 2026 ---
 # https://ethicsinsociety.stanford.edu/events
@@ -217,6 +257,14 @@
   location: "Paul Brest Hall"
   summary: "Arrow Lecture by Betsey Stevenson of the University of Michigan, with Professor Lukas Althoff as discussant."
   url: "https://ethicsinsociety.stanford.edu/events/what-do-we-owe-each-other-age-ai"
+
+- date: 2026-11-12
+  title: "Unsettling the New AI Status Quo"
+  host: eis
+  time: "11:30 am–5:00 pm"
+  location: "Cypress Lounge, Tresidder Memorial Union"
+  summary: "The 2026 Ethics and Technology Practitioner Fellows present their work, including a session on the AI accountability gap."
+  url: "https://ethicsinsociety.stanford.edu/events/unsettling-new-ai-status-quo"
 
 # --- AI Governance Lab, autumn 2026 ---
 
