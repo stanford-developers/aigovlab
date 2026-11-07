@@ -86,8 +86,8 @@
   title: "How to Make AI Agents Obey the Law"
   host: sls
   time: "12:45–2:00 pm"
-  location: "Room 270, Stanford Law School"
-  summary: "AI Initiative Speaker Series, with Christina Knight, formerly of Scale AI, and Stephanie Sharron of Morrison & Foerster."
+  location: "Room 270, Stanford Law School, and online"
+  summary: "AI Initiative Speaker Series, with Christina Knight, formerly of Scale AI, and Stephanie Sharron of Morrison & Foerster, moderated by Professor Nate Persily."
   url: "https://law.stanford.edu/event/ai-initiative-speaker-series-5/"
 
 # --- Other Stanford Law School events, autumn 2026 ---
@@ -99,6 +99,14 @@
   location: "Room 290, Stanford Law School, and online"
   summary: "Lunch conversation with Kevin Roose of Hard Fork and Ethan Mollick of Wharton on their new books, hosted by the Rock Center for Corporate Governance and the AI Initiative."
   url: "https://law.stanford.edu/event/kevin-roose-ethan-mollick-the-future-and-business-of-ai/"
+
+- date: 2026-11-17
+  title: "Auditing the Frontier: The Technical and Legal Challenges of AI Oversight"
+  host: sls
+  time: "12:45–2:00 pm"
+  location: "Room 95, Stanford Law School"
+  summary: "Stanford AI Law Society lunch with Spencer Amdur of the Institute for Law & AI on independent auditors, AI oversight, and writing effective AI legislation."
+  url: "https://law.stanford.edu/event/auditing-the-frontier-the-technical-and-legal-challenges-of-ai-oversight/"
 
 # --- Stanford HAI, autumn 2026 ---
 
@@ -143,6 +151,30 @@
   summary: "Co-hosted with HAI: former Anthropic and OpenAI researcher Jacob Coxon talks with Professor Rob Reich about leaving Anthropic and the tensions it reveals in the AI industry."
   url: "https://hai.stanford.edu/events/a-conversation-with-jacob-coxon-rob-reich"
 
+- date: 2026-11-13
+  title: "Best Practices for the Use of LLMs as Judges"
+  host: hai
+  time: "1:00 pm"
+  location: "Online"
+  summary: "AI Measurement Science Center seminar with Khaoula Chehbouni."
+  url: "https://stanford.zoom.us/webinar/register/WN_7GBG2og0QwifqqgSg6qg-Q"
+
+- date: 2026-11-13
+  title: "Understanding Work Using AI"
+  host: hai
+  time: "2:00–4:00 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Digital Economy Lab seminar and fireside chat with Phil Lewis of the National Center for O*NET Development, followed by a panel with Diyi Yang and Erik Brynjolfsson."
+  url: "https://digitaleconomy.stanford.edu/event/special-seminar-and-fireside-chat-understanding-work-using-ai/"
+
+- date: 2026-11-16
+  title: "Research Acceleration: The View Inside OpenAI"
+  host: hai
+  time: "12:00–1:00 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "Digital Economy Lab seminar with Christopher Ong of OpenAI on how AI agents are changing research inside frontier labs."
+  url: "https://digitaleconomy.stanford.edu/event/christopher-ong-del-seminar-series/"
+
 - date: 2026-11-18
   title: "AI Goes Mainstream: The Scaling Era and the Rise of Generative AI"
   host: hai
@@ -150,6 +182,14 @@
   location: "Gates Computer Science, Room 119"
   summary: "HAI seminar with Michael Wooldridge of Oxford on the third AI100 report."
   url: "https://hai.stanford.edu/events/hai-seminar-the-ai-100"
+
+- date: 2026-12-09
+  title: "Gurus, Hucksters, Entertainers: How Influencers Reshaped Social Media"
+  host: hai
+  time: "12:00–1:15 pm"
+  location: "Gates Computer Science, Room 119, and online"
+  summary: "HAI seminar with Angèle Christin of Stanford and Hannah Zeavin of UC Berkeley, co-sponsored by Public Humanities at Stanford."
+  url: "https://hai.stanford.edu/events/angele-christin-hannah-zeavin-gurus-hucksters-entertainers-how-influencers-reshaped-social-media"
 
 # --- McCoy Family Center for Ethics in Society, autumn 2026 ---
 # https://ethicsinsociety.stanford.edu/events
@@ -177,3 +217,13 @@
   location: "Paul Brest Hall"
   summary: "Arrow Lecture by Betsey Stevenson of the University of Michigan, with Professor Lukas Althoff as discussant."
   url: "https://ethicsinsociety.stanford.edu/events/what-do-we-owe-each-other-age-ai"
+
+# --- AI Governance Lab, autumn 2026 ---
+
+- date: 2026-11-12
+  title: "Ghost in the Machine: Screening and Q&A"
+  host: lab
+  time: "5:30–8:00 pm"
+  location: "McClatchy Hall, Room 101, and online for the panel"
+  summary: "Stanford Critical AI screens the 2026 documentary on the buried history of AI, followed by a panel with director Valerie Veatch and Professor Johnathan Flowers, moderated by Yasi Khan and Allana Moore. Dinner served."
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSdHA6g6-5h5Am1lS5xOV01W9uGoVTvHlFaSAgKYErHGirjs-g/viewform"
