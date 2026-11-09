@@ -11,9 +11,10 @@
 #                  "Co-Directors" group heading already says that.
 #   group          which section they appear in; see _data/people_groups.yml
 #                  (faculty | postdocs | members | alumni)
-#   photo          filename inside assets/img/ — omit for a blank avatar circle
-#   photo_position "top" crops the portrait toward the top of the frame, for
-#                  photos where centering cuts off the head; omit otherwise
+#   photo          filename inside assets/img/ — omit for a blank avatar circle.
+#                  Crop it square with the eyes centered 40% of the way down
+#                  and the face (chin to hairline) about half the frame, so
+#                  eyelines stay level with everyone else's. 400×400 JPEG.
 #   url            their faculty or personal page; the whole card becomes a
 #                  link to it. Omit and the card renders as plain text.
 
@@ -58,3 +59,16 @@
   group: members
   photo: dominic-zappia.jpg
   url: http://dzappia.com/
+
+- name: Vicki Ballagh
+  last_name: Ballagh
+  role: Lab Manager
+  group: members
+  photo: vicki-ballagh.jpg
+
+- name: Samantha Bennett
+  last_name: Bennett
+  role: PhD Candidate, Philosophy
+  group: members
+  photo: samantha-bennett.jpg
+  url: https://www.linkedin.com/in/samantha-bennett-338a0ba4/
