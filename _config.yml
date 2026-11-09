@@ -47,11 +47,27 @@ plugins:
 # written by hand in _includes/head.html.
 tagline: "Stanford University"
 
+# --- Profile pages ---
+# One Markdown file in _people/ per person who has a bio, published at
+# /people/<filename>/. The file holds only the bio; name, role, photo, and
+# links stay in _data/people.yml, matched by the file's `title`. A homepage
+# card links to the profile when one exists, otherwise to the person's `url`.
+collections:
+  people:
+    output: true
+    permalink: /people/:name/
+
 defaults:
   - scope:
       path: ""
     values:
       image: /assets/img/og.jpg
+  - scope:
+      path: ""
+      type: people
+    values:
+      layout: person
+      nav: people
 
 # --- Build ---
 markdown: kramdown

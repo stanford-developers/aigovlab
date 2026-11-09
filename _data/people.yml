@@ -16,13 +16,22 @@
 #                  and the face (chin to hairline) about half the frame, so
 #                  eyelines stay level with everyone else's. 400×400 JPEG.
 #   url            their faculty or personal page; the whole card becomes a
-#                  link to it. Omit and the card renders as plain text.
+#                  link to it. Omit and the card renders as plain text. On a
+#                  profile page it is the "Website" link.
+#   linkedin       full LinkedIn URL, shown under the photo on a profile page.
+#   portrait       optional 4:5 photo, 640×800, for the profile
+#                  page, which has room to show more than the face. Falls
+#                  back to `photo`.
+#
+# To give someone a profile page with a bio, add _people/<their-name>.md; see
+# _people/yasi-khan.md. Their homepage card then links there instead of `url`.
 
 - name: Rob Reich
   last_name: Reich
   role: McGregor-Girand Professor of Social Ethics of Science and Technology
   group: faculty
   photo: rob-reich.jpg
+  portrait: rob-reich-portrait.jpg
   url: https://robreich.stanford.edu/
 
 - name: Nathaniel Persily
@@ -30,6 +39,7 @@
   role: James B. McClatchy Professor of Law
   group: faculty
   photo: nate-persily.jpg
+  portrait: nate-persily-portrait.jpg
   url: https://law.stanford.edu/nathaniel-persily/
 
 - name: Dr. Roberta Fischli
@@ -37,38 +47,50 @@
   role: Postdoctoral Scholar
   group: postdocs
   photo: roberta-fischli.jpg
+  portrait: roberta-fischli-portrait.jpg
   url: https://www.robertafischli.com/
+  linkedin: https://www.linkedin.com/in/roberta-fischli/
 
 - name: Dr. Kavya Ravichandran
   last_name: Ravichandran
   role: Postdoctoral Scholar
   group: postdocs
   photo: kavya-ravichandran.jpeg
+  portrait: kavya-ravichandran-portrait.jpg
   url: https://kavyar314.github.io/
+  linkedin: https://www.linkedin.com/in/kavya-ravichandran-46726510b/
 
 - name: Yasi Khan
   last_name: Khan
   role: Predoctoral Scholar
   group: members
   photo: yasi-khan.jpg
+  portrait: yasi-khan-portrait.jpg
   url: https://yrkhan.com
+  linkedin: https://www.linkedin.com/in/yasmeena-khan/
 
 - name: Dominic Zappia
   last_name: Zappia
   role: Predoctoral Scholar
   group: members
   photo: dominic-zappia.jpg
+  portrait: dominic-zappia-portrait.jpg
   url: http://dzappia.com/
+  linkedin: https://www.linkedin.com/in/domzappia/
 
 - name: Vicki Ballagh
   last_name: Ballagh
   role: Lab Manager
   group: members
   photo: vicki-ballagh.jpg
+  portrait: vicki-ballagh-portrait.jpg
+  url: https://www.anchorlightadvisory.com/
+  linkedin: https://www.linkedin.com/in/vicki-ballagh/
 
 - name: Samantha Bennett
   last_name: Bennett
   role: PhD Candidate, Philosophy
   group: members
   photo: samantha-bennett.jpg
-  url: https://www.linkedin.com/in/samantha-bennett-338a0ba4/
+  portrait: samantha-bennett-portrait.jpg
+  linkedin: https://www.linkedin.com/in/samantha-bennett-338a0ba4/

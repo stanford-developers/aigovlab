@@ -1067,6 +1067,138 @@ span.event-title {
   border-bottom: 1px solid var(--rule);
 }
 
+/* ---------- Profile pages ---------- */
+
+/* The homepage shows each person as a circle; the profile opens that circle
+   into the full rectangular frame, so the portrait is square-cornered and
+   larger than anything else on the page. The bio column keeps the site's
+   reading measure, and the portrait column is fixed so every profile has its
+   photo in the same place. */
+.profile-back {
+  font-size: 0.92rem;
+  margin: 0 0 1.75rem;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18.5rem;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "head aside"
+    "bio  aside";
+  gap: 0 4rem;
+  align-items: start;
+}
+
+.profile-head {
+  grid-area: head;
+}
+
+.profile-role {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 0.4rem 0 0;
+}
+
+/* The same short cardinal rule that sits under the homepage's section
+   headings, left-aligned here because the page is. */
+.profile-head::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: var(--cardinal);
+  margin: 1.5rem 0 1.75rem;
+}
+
+.profile-bio {
+  grid-area: bio;
+  max-width: 62ch;
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.profile-bio p {
+  margin: 0 0 1.15rem;
+}
+
+.profile-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-aside {
+  grid-area: aside;
+}
+
+.profile-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--cardinal-tint);
+}
+
+/* Ruled rows, like the site's other lists, rather than buttons. */
+.profile-links {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.profile-links li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.profile-links li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.profile-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+}
+
+/* The external-link mark, right after the label: both links leave the site. */
+.profile-links svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex: none;
+}
+
+/* What each link is, before its label: a little larger and further from the
+   text than the external-link mark after it. */
+.profile-links .profile-link-logo {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.25rem;
+}
+
+/* Stacked, the portrait follows the name so the page still opens on who this
+   is, and it shrinks so the bio starts within the first screen. */
+@media (max-width: 760px) {
+  .profile {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "head"
+      "aside"
+      "bio";
+  }
+
+  .profile-head::after {
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-aside {
+    max-width: 15rem;
+    margin-bottom: 2rem;
+  }
+}
+
 .not-found-links {
   margin: 0;
   padding: 0;
