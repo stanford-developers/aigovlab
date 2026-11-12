@@ -54,37 +54,37 @@ title: AI Governance Lab
       group is alphabetized by the `last_name` field rather than by the order
       of the data file, so adding someone never means resorting it by hand —
       except where the group sets `order: listed`, which is for sections whose
-      order is a deliberate choice rather than a convention.
+      order is a deliberate choice rather than a convention. A group with
+      `beside` set shares the row of the group it names.
     {%- endcomment -%}
     <div class="people-groups">
     {%- for group in site.data.people_groups %}
-      {%- assign members = site.data.people | where: "group", group.id %}
-      {%- unless group.order == "listed" %}{% assign members = members | sort: "last_name" %}{% endunless %}
-      {%- if members.size > 0 %}
-    <div class="people-group">
-    <h3 class="group-heading">{{ group.heading }}</h3>
-    <ul class="people-grid people-grid-{{ group.id }}">
-      {%- for person in members %}
+      {%- if group.beside %}{% continue %}{% endif %}
       {%- comment -%}
-        With a profile page in _people/ or a `url` the whole card is one link,
-        so the photo and the name are a single target; without either it
-        degrades to the same card as plain text. Profiles open in this tab,
-        outside pages in a new one.
+        This group plus any that set `beside` to it, minus the empty ones. One
+        left makes an ordinary row; two or more share it, side by side.
       {%- endcomment -%}
-      {%- assign profile = site.people | where: "title", person.name | first %}
-      <li class="person">
-        {%- if profile %}<a class="person-card" href="{{ profile.url | relative_url }}">{% elsif person.url %}<a class="person-card" href="{{ person.url }}" target="_blank" rel="noopener">{% else %}<div class="person-card">{% endif %}
-          <span class="avatar">
-            {%- if person.photo %}
-            <img src="{{ '/assets/img/' | append: person.photo | relative_url }}" alt="" loading="lazy" width="120" height="120" />
-            {%- endif %}
-          </span>
-          <span class="person-name">{{ person.name | escape }}</span>
-          <span class="person-role">{{ person.role | escape }}</span>
-        {%- if profile or person.url %}</a>{% else %}</div>{% endif %}
-      </li>
+      {%- assign row = site.data.people_groups | where: "beside", group.id | unshift: group %}
+      {%- assign filled = "" | split: "" %}
+      {%- for g in row %}
+        {%- assign count = site.data.people | where: "group", g.id | size %}
+        {%- if count > 0 %}{% assign filled = filled | push: g %}{% endif %}
       {%- endfor %}
-    </ul>
+      {%- if filled.size == 1 %}
+    <div class="people-group">
+    {%- assign only = filled | first %}
+    <h3 class="group-heading">{{ only.heading }}</h3>
+    {% include people-grid.html group=only %}
+    </div>
+      {%- elsif filled.size > 1 %}
+    <div class="people-group people-group-shared">
+      {%- for g in filled %}
+      {%- assign span = site.data.people | where: "group", g.id | size %}
+      <div class="people-subgroup" style="--span: {{ span }}">
+      <h3 class="group-heading">{{ g.heading }}</h3>
+      {% include people-grid.html group=g %}
+      </div>
+      {%- endfor %}
     </div>
       {%- endif %}
     {%- endfor %}

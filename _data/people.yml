@@ -10,7 +10,7 @@
 #                  is their professorship, not their lab position — the
 #                  "Co-Directors" group heading already says that.
 #   group          which section they appear in; see _data/people_groups.yml
-#                  (faculty | postdocs | members | alumni)
+#                  (faculty | staff | members | alumni)
 #   photo          filename inside assets/img/ — omit for a blank avatar circle.
 #                  Crop it square with the eyes centered 40% of the way down
 #                  and the face (chin to hairline) about half the frame, so
@@ -45,7 +45,7 @@
 - name: Dr. Roberta Fischli
   last_name: Fischli
   role: Postdoctoral Scholar
-  group: postdocs
+  group: members
   photo: roberta-fischli.jpg
   portrait: roberta-fischli-portrait.jpg
   url: https://www.robertafischli.com/
@@ -54,7 +54,7 @@
 - name: Dr. Kavya Ravichandran
   last_name: Ravichandran
   role: Postdoctoral Scholar
-  group: postdocs
+  group: members
   photo: kavya-ravichandran.jpeg
   portrait: kavya-ravichandran-portrait.jpg
   url: https://kavyar314.github.io/
@@ -80,8 +80,8 @@
 
 - name: Vicki Ballagh
   last_name: Ballagh
-  role: Lab Manager
-  group: members
+  role: Director of Strategy & Operations
+  group: staff
   photo: vicki-ballagh.jpg
   portrait: vicki-ballagh-portrait.jpg
   url: https://www.anchorlightadvisory.com/

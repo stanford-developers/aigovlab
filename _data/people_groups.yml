@@ -3,12 +3,20 @@
 #
 # Groups are alphabetized by each person's `last_name` unless they set
 # `order: listed`, which keeps them in the order they appear in _data/people.yml.
+# `roles_first` lists roles that go ahead of everyone else in the group; each
+# part stays alphabetized.
+#
+# `beside: <id>` puts a group in the same row as that group, to its right. If
+# either group is empty the other gets the row to itself.
 - id: faculty
   heading: Co-Directors
   order: listed
-- id: postdocs
-  heading: Postdoctoral Scholars
+- id: staff
+  heading: Staff
+  beside: faculty
 - id: members
   heading: Lab Members
+  roles_first:
+    - Postdoctoral Scholar
 - id: alumni
   heading: Lab Alumni
