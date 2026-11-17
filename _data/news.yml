@@ -17,6 +17,12 @@
 #   summary: "What the story means for the lab."
 #   url: "https://example.com/story"
 
+- date: 2026-11-13
+  outlet: "Stanford HAI"
+  title: "A Conversation Between Jacob Coxon and Rob Reich"
+  summary: "Co-Director Rob Reich sat down for a fireside chat with former Anthropic and OpenAI researcher Jacob Coxon, whose public resignation over the summer drew wide media attention and renewed debate on AI safety."
+  url: "https://www.youtube.com/watch?v=UggJMQskOj8"
+
 - date: 2026-09-25
   outlet: "Stanford HAI"
   title: "Implementing the Transparency in Frontier AI Act: Report for the California Department of Technology Multistakeholder Workshops"
@@ -26,5 +32,5 @@
 - date: 2026-09-23
   outlet: "Office of Governor Gavin Newsom"
   title: "Governor Newsom announces world-leading experts to deliver on his AI executive order, including advancing creation of a “kill switch”"
-  summary: "AI Governance Lab Co-Director Rob Reich was named to the advisory council for the executive order, which accelerates independent oversight of AI."
+  summary: "Co-Director Rob Reich was named to the advisory council for the executive order, which accelerates independent oversight of AI."
   url: "https://www.gov.ca.gov/2026/09/23/governor-newsom-announces-world-leading-experts-to-deliver-on-his-ai-executive-order-including-advancing-creation-of-a-kill-switch/"
