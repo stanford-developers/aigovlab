@@ -25,6 +25,15 @@
 #     pdf: "https://example.org/paper.pdf"
 #     doi: "https://doi.org/10.0000/example"
 
+- title: "AI Safety in 2026 and Beyond: Recommendations for Legislative Enhancements to California’s AI Safety Laws"
+  authors: ["Jason Goldman", "Gillian Hadfield", "Alondra Nelson", "Rob Reich", "Scott Singer"]
+  year: 2026
+  venue: "California Government Operations Agency"
+  details: "Report to the Governor"
+  links:
+    url: "https://www.gov.ca.gov/2026/11/18/governor-newsoms-nation-leading-ai-safety-framework-is-getting-even-stronger-as-california-releases-next-steps-on-mandatory-safety-standards-and-oversight/"
+    pdf: "https://www.govops.ca.gov/wp-content/uploads/sites/11/2026/11/FINAL_-AI-Safety-in-2026-and-Beyond-v2.pdf"
+
 - title: "Beyond Pilots and PR: What Makes AI-for-Good Partnerships Work"
   authors: ["Vera Lummis", "Angela Aristidou", "Rob Reich"]
   year: 2026
