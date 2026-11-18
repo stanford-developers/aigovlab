@@ -765,6 +765,10 @@ a.person-card:hover .avatar {
   border-bottom: 1px solid var(--rule);
 }
 
+.news-item[hidden] {
+  display: none;
+}
+
 .news-date {
   margin: 0;
   color: var(--ink-soft);
@@ -989,7 +993,8 @@ a.cal-day.is-linked {
 
 /* Centered under the list. The minimum width keeps it the same size whether
    it reads "Show more" or "Show fewer". */
-.event-toggle {
+.event-toggle,
+.news-toggle {
   display: block;
   min-width: 9.5rem;
   margin: 1.75rem auto 0;
@@ -1004,7 +1009,8 @@ a.cal-day.is-linked {
   cursor: pointer;
 }
 
-.event-toggle:hover {
+.event-toggle:hover,
+.news-toggle:hover {
   background: var(--cardinal-tint);
 }
 
