@@ -29,6 +29,12 @@
   quote: "Today there is more oversight of the cafeteria offering sandwiches to employees at a frontier AI developer than of the AI models they design. It’s time to govern this technology so that we can build public trust and support responsible innovation. I’m proud to see California leading the way. From confronting the risks from recursive self improvement to critical incident reporting to independent testing and evaluation, the recommendations in this report urge the state, and policymakers elsewhere, to take commonsense action without diminishing the extraordinary benefits from AI."
   quote_by: "Rob Reich"
 
+- date: 2026-11-10
+  outlet: "WIRED"
+  title: "The AI Safety Debate Has Lost the Plot. We Asked 10 Experts What the Real Nightmares Are"
+  summary: "Co-Director Rob Reich is featured as a leading voice in responsible AI and shares his views on what we should and shouldn’t be concerned with regarding AI. He also challenges the common refrain from the tech leaders to “democratize” AI without having a vision for meaningful democratic governance."
+  url: "https://www.wired.com/story/the-ai-safety-debate-has-lost-the-plot-we-asked-10-experts-what-the-real-nightmares-are/"
+
 - date: 2026-11-13
   outlet: "Stanford HAI"
   title: "A Conversation Between Jacob Coxon and Rob Reich"
