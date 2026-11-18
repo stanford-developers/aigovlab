@@ -106,7 +106,8 @@ title: AI Governance Lab
         <p class="news-body">
           <a href="{{ item.url }}"{% unless item.url contains '#' %} target="_blank" rel="noopener"{% endunless %}>{{ item.title | escape }}</a>
           <span class="news-outlet">{{ item.outlet | escape }}</span>
-          {%- if item.summary %}<span class="news-summary">{{ item.summary | strip_newlines | escape }}</span>{% endif %}
+          {%- if item.summary or item.more_url %}<span class="news-summary">{{ item.summary | strip_newlines | escape }}{% if item.more_url %} <a href="{{ item.more_url }}" target="_blank" rel="noopener">{{ item.more_label | default: "Read more" | escape }}</a>.{% endif %}</span>{% endif %}
+          {%- if item.quote %}<span class="news-quote">“{{ item.quote | strip_newlines | escape }}”{% if item.quote_by %} <span class="news-quote-by">— {{ item.quote_by | escape }}</span>{% endif %}</span>{% endif %}
         </p>
       </li>
       {%- endfor %}

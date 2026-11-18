@@ -790,6 +790,24 @@ a.person-card:hover .avatar {
   margin-top: 0.2rem;
 }
 
+.news-quote {
+  display: block;
+  margin-top: 0.6rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.news-quote-by {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
 /* ---------- Events ---------- */
 
 /* One mark stands for a host everywhere it appears: in the key, under a day
