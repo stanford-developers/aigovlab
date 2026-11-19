@@ -323,15 +323,15 @@ nav#top-nav {
   color: #ffffff;
   /* --hero-image is set inline on the element from `hero_image` in _config.yml,
      so swapping the photo is a config change, not a CSS edit. The scrim is
-     weighted toward the middle rather than flat: the title sits in that band,
-     and on the CODA photo it falls across bright glass that a uniform wash
-     leaves too light to read white type against. */
+     weighted toward the middle rather than flat, since the title sits in that
+     band. It is kept light so the Hoover photo's sunset glow comes through;
+     the middle is just dark enough for white type over the hazy hills. */
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.58) 40%,
-      rgba(0, 0, 0, 0.58) 64%,
-      rgba(0, 0, 0, 0.32) 100%
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.38) 40%,
+      rgba(0, 0, 0, 0.38) 64%,
+      rgba(0, 0, 0, 0.14) 100%
     ),
     var(--hero-image);
   background-size: cover;
