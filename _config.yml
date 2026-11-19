@@ -31,7 +31,7 @@ google_analytics_id: "G-FLF0NQ7KZ0"
 # landscape image at least 1600px wide into assets/img/ and point this at it.
 # A dark wash goes over the photo automatically so the white lab name stays
 # readable, but a photo that is bright or busy through the middle will fight it.
-hero_image: /assets/img/coda.jpg
+hero_image: /assets/img/hoover.jpg
 
 # --- Link previews and search ---
 # jekyll-seo-tag writes the <title>, description, canonical link, and the Open

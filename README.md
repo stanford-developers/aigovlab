@@ -63,12 +63,12 @@ rather than touching HTML.
 
 ### The hero photo
 
-The photo behind the lab name is `assets/img/coda.jpg`. To change it, drop a
+The photo behind the lab name is `assets/img/hoover.jpg`. To change it, drop a
 landscape image at least 1600px wide into `assets/img/` and point `hero_image`
 in `_config.yml` at it:
 
 ```yaml
-hero_image: /assets/img/coda.jpg
+hero_image: /assets/img/hoover.jpg
 ```
 
 A dark scrim goes over the photo automatically, weighted toward the middle

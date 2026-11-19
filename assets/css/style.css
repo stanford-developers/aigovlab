@@ -335,7 +335,10 @@ nav#top-nav {
     ),
     var(--hero-image);
   background-size: cover;
-  background-position: center;
+  /* Pinned to the top so the crop comes off the bottom and Hoover Tower keeps
+     its dome. 20% across keeps the tower, which stands left of center in the
+     photo, in frame on narrow phone screens too. */
+  background-position: 20% top;
   background-repeat: no-repeat;
 }
 
@@ -1490,8 +1493,15 @@ footer {
 /* Parallax only where it can be smooth: not on touch, not for anyone who has
    asked for less motion. */
 @media (min-width: 900px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* A fixed background is placed against the viewport, not the hero, so its
+     top would sit behind the sticky nav and clip Hoover's dome. The photo is
+     sized 120px wider than the viewport (and never shorter than it, at the
+     photo's 16:9) and slid 120px left, which moves the tower out from under
+     the start of the lab name without uncovering the right edge. */
   .hero {
     background-attachment: fixed;
+    background-size: max(calc(100vw + 120px), 177.78vh) auto, max(calc(100vw + 120px), 177.78vh) auto;
+    background-position: -120px var(--nav-height);
   }
 }
 
